@@ -1,0 +1,21 @@
+.heroContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.heroBG {
+  background-image: url("/img/heroSky.webp");
+  background-position: 100% 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.heroTitle {
+  position: absolute;
+  background-color: transparent;
+  color: white;
+}
