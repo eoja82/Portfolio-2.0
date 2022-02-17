@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 .heroBG {
   background-image: url("/img/heroSky.webp");
@@ -14,8 +15,23 @@
   height: 100%;
   width: 100%;
 }
-.heroTitle {
+.titleContainer {
   position: absolute;
+}
+.heroTitle, .heroSubTitle {
   background-color: transparent;
   color: white;
+  text-align: center;
+  font-weight: lighter;
+}
+.heroTitle > span {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: rgb(70, 236, 253);
+}
+.angle {
+  position: absolute;
+  bottom: 1rem;
+  color: white;
+  font-size: 2rem;
 }
