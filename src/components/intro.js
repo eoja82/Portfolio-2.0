@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useLayoutEffect, useRef } from "react"
 import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
@@ -14,17 +14,17 @@ const Intro = () => {
         angle = useRef(null)
   
   // on scroll animations
-  useEffect(() => {
+  useLayoutEffect(() => {
     const offset = window.innerWidth / 2
-
     gsap.to(heroBG.current, {
       backgroundPosition: `100% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
+        markers: true,
         trigger: heroBG.current,
         start: "top top",
         end: "bottom top",
-        scrub: true
+        scrub: .1
       }
     })
     gsap.to(heroTitle.current, {
@@ -61,7 +61,7 @@ const Intro = () => {
   })
 
   // initial animations in
-  useEffect(() => {
+  useLayoutEffect(() => {
     const offset = window.innerWidth / 2
     gsap.from(heroTitle.current, {
       opacity: 0, 
