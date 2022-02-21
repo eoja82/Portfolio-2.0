@@ -1,6 +1,6 @@
 const portfolio = [
   {
-    src: "./img/mineSweeper.png", 
+    src: "./img/projects/mineSweeper.png", 
     alt: "Minesweeper", 
     view: "https://game-minesweeper.glitch.me/",
     code: "https://github.com/eoja82/Mine-Sweeper",
@@ -8,7 +8,7 @@ const portfolio = [
     skills: ["JavaScript", "Node.js", "Express", "Mongoose", "MongoDB"]
   },
   {
-    src: "./img/lakesideDemo.png",
+    src: "./img/projects/lakesideDemo.png",
     alt: "Gatsby / React Demo Website",
     view: "https://eoja82.github.io/lakeside-demo/",
     code: "https://github.com/eoja82/lakeside-demo",
@@ -16,7 +16,7 @@ const portfolio = [
     skills: ["React", "Gatsby", "GraphQL", "HTML", "CSS"]
   },
   {
-    src: "./img/issueTracker.png", 
+    src: "./img/projects/issueTracker.png", 
     alt: "Issue Tracker", 
     view: "https://multi-project-issue-tracker.glitch.me/",
     code: "https://github.com/eoja82/multi-project-issue-tracker",
@@ -24,7 +24,7 @@ const portfolio = [
     skills: ["JavaScript", "Node.js", "Express", "Mongoose", "MongoDB", "Mocha/Chai"]
   },
   {
-    src: "./img/tetris.png",
+    src: "./img/projects/tetris.png",
     alt: "Tetris",
     view: "https://game-tetris.glitch.me/",
     code: "https://github.com/eoja82/tetris",
@@ -32,7 +32,7 @@ const portfolio = [
     skills: ["JavaScript", "Python", "Django", "SQLite", "HTML", "CSS"]
   },
   {
-    src: "./img/forSale.png",
+    src: "./img/projects/forSale.png",
     alt: "For Sale Template",
     view: "https://eoja82.github.io/For-Sale/",
     code: "https://github.com/eoja82/For-Sale",
@@ -40,7 +40,7 @@ const portfolio = [
     skills: ["React", "Gatsby", "GraphQL", "HTML", "CSS"]
   },
   {
-    src: "./img/portfolio.png",
+    src: "./img/projects/portfolio.png",
     alt: "My Portfolio",
     view: "https://www.erikoja.com/",
     code: "https://github.com/eoja82/Portfolio",
@@ -48,7 +48,7 @@ const portfolio = [
     skills: ["JavaScript", "HTML", "CSS", "Animate.css"]
   },
   {
-    src: "./img/stockPriceChecker.png", 
+    src: "./img/projects/stockPriceChecker.png", 
     alt: "Stock Price Checker", 
     view: "https://fccstockpricecheck.glitch.me/",
     code: "https://github.com/eoja82/Stock-Price-Checker",
@@ -56,7 +56,7 @@ const portfolio = [
     skills: ["Node.js", "Express", "Mongoose", "MongoDB", "Mocha/Chai", "JavaScript"]
   },
   {
-    src: "./img/D3.png", 
+    src: "./img/projects/D3.png", 
     alt: "Data Visualization With D3.js", 
     view: "https://eoja82.github.io/fcc-Data-Visualization-Projects/",
     code: "https://github.com/eoja82/fcc-Data-Visualization-Projects",
@@ -64,7 +64,7 @@ const portfolio = [
     skills: ["D3.js", "JavaScript", "W3.CSS", "HTML", "CSS"]
   },
   {
-    src: "./img/pomodoroClock.png", 
+    src: "./img/projects/pomodoroClock.png", 
     alt: "Pomodoro Clock", 
     view: "https://eoja82.github.io/Pomodoro-Clock",
     code: "https://github.com/eoja82/Pomodoro-Clock",
@@ -72,7 +72,7 @@ const portfolio = [
     skills: ["React", "HTML", "CSS"]
   },
   {
-    src: "./img/calculator.png", 
+    src: "./img/projects/calculator.png", 
     alt: "Calculator", 
     view: "https://eoja82.github.io/Calculator",
     code: "https://github.com/eoja82/Calculator",
