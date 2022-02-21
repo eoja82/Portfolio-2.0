@@ -2,6 +2,7 @@
   --lightBlue: rgb(70, 236, 253);
   --gray: rgb(99, 113, 115);
   --lightBackground: rgb(255, 255, 255);
+  --darkBackground: rgb(33, 37, 41);
 }
 .container {
   background: url("/img/codeLeft.jpeg");
@@ -10,25 +11,20 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
 .transitionContainer {
-  position: relative;
   width: 100%;
-  height: 110px;
-}
-.projectsContainer {
-  width: 100%;
-  /* temp height */
-  min-height: 800px;
-  background-color: var(--lightBackground);
+  height: 150px;
 }
 .titleContainer {
+  background-color: var(--lightBackground);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .title {
   text-align: center;
@@ -43,4 +39,34 @@
   border-radius: 1px;
   background-color: var(--lightBlue);
   margin: 0 auto;
+}
+.projectsContainer {
+  width: 100%;
+  background-color: var(--lightBackground);
+}
+.flipCard {
+  background-color: transparent;
+  perspective: 1500px;
+}
+.cardInner {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.flipCard:hover .cardInner {
+  transform: rotateY(180deg);
+}
+.cardFront, .cardBack {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.cardBack {
+  position: absolute;
+  top: 0;
+  background-color: var(--darkBackground);
+  color: var(--lightBlue);
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg);
 }
