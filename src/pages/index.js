@@ -11,7 +11,8 @@ export default function Home() {
       <Intro />
       <Projects />
       <div style={{height: "100vh", backgroundColor: "gray"}}>Temporary</div>
-
+      {/* About section, color icons for front end
+          back end, database, mobile?, testing and other */}
     </Layout>
   )
 }
