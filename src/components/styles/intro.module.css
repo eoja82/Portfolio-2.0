@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 .heroBG {
-  background-image: url("/img/heroSky.webp");
   background-position: 100% 0px;
   background-repeat: no-repeat;
   background-size: cover;

@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from "react"
 import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
+import { withPrefix } from "gatsby"
 
 if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
@@ -20,7 +21,6 @@ const Intro = () => {
       backgroundPosition: `100% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
-        markers: true,
         trigger: heroBG.current,
         start: "top top",
         end: "bottom top",
@@ -89,7 +89,7 @@ const Intro = () => {
   return (
     <div>
       <div className={styles.heroContainer}>
-        <div className={styles.heroBG} ref={heroBG}></div>
+        <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
         <div className={styles.titleContainer}>
           <h1 className={styles.heroTitle} ref={heroTitle}>Hello, my name is <span>Erik Oja</span>.</h1>
           <h2 className={styles.heroSubTitle} ref={heroSubTitle}>I'm a full stack web developer.</h2>
