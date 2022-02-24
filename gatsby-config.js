@@ -5,7 +5,7 @@
  */
 
  module.exports = {
-  pathPrefix: "/",
+  pathPrefix: "/Portfolio-2.0",
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
