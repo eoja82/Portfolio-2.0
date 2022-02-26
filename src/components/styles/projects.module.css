@@ -3,6 +3,7 @@
   --gray: rgb(99, 113, 115);
   --lightBackground: rgb(255, 255, 255);
   --darkBackground: rgb(33, 37, 41);
+  --hoverColor: rgb(240, 236, 236);
 }
 .container {
   background-position: center;
@@ -11,12 +12,10 @@
   background-attachment: fixed;
   width: 100vw;
   height: auto;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
-}
-.transitionContainer {
-  width: 100%;
-  height: 150px;
 }
 .titleContainer {
   background-color: var(--lightBackground);
@@ -42,6 +41,38 @@
 .projectsContainer {
   width: 100%;
   background-color: var(--lightBackground);
+}
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.filterContainer:hover {
+  background-color: var(--hoverColor);
+}
+.filters {
+  margin: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.filter {
+  text-align: center;
+  color: var(--gray);
+  margin: .5rem 0;
+  z-index: 1;
+}
+.activeFilter {
+  background-color: var(--lightBlue);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.projects {
+  padding-bottom: 3rem;
 }
 .flipCard {
   background-color: transparent;
