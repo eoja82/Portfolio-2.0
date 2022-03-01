@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
 import { Flip, gsap, ScrollTrigger } from "gsap/all"
@@ -41,39 +41,82 @@ const Projects = () => {
     })
     
     // animate projects on scroll
-    qCard(".card").map( card => {
+    /* qCard(".card").map( card => {
       return gsap.from(card, {
         y: 50,
         opacity: 0,
         duration: .6,
         scrollTrigger: {
-          /* markers: true, */
           trigger: card,
           start: "top bottom-=100px",
           toggleActions: "play pause resume reverse"
         }
       })
-    })
+    }) */
 
     // add click event to filters
     qFilter(".col").forEach( filter => {
       filter.addEventListener("click", filterProjects)
     })
-    
+
   })
 
+  // animate activeFilter color and filter projects
   function filterProjects(e) {
-    const state = Flip.getState(activeFilter.current),
-          target = e.target.tagName === "P" ? e.target.parentElement : e.target
-      
-    target.appendChild(activeFilter.current)
+    const filterState = Flip.getState(activeFilter.current),
+          filterTarget = e.target.tagName === "P" ? e.target.parentElement : e.target,
+          projects = qCard(".col"),
+          projectsState = Flip.getState(projects)
 
-    Flip.from(state, {
+    let clicked
+    
+    // return if user clicks activeFilter else assign clicked
+    if (filterTarget === activeFilter.current) {
+      return
+    } else {
+      clicked = filterTarget.firstElementChild.innerText
+    }
+      
+    filterTarget.appendChild(activeFilter.current)
+
+    Flip.from(filterState, {
       duration: .5,
       ease: "power1.inOut",
       scale: true
     })
-    
+
+    //console.log(projects[0].style.display)
+    projects.forEach( (project, i) => {
+      if (portfolio[i].skills.includes(clicked) || clicked === "All") {
+        project.style.display = "block"
+      } else {
+        project.style.display = "none"
+      }
+    })
+
+    Flip.from(projectsState, {
+      duration: 1,
+      scale: true,
+      ease: "power1.inOut",
+      stagger: .08,
+      absolute: true,
+      nested: true,
+      absoluteOnLeave: true,
+      onEnter: el => gsap.fromTo(el, {
+        opacity: 0,
+        scale: 0
+      }, {
+        opacity: 1,
+        scale: 1,
+        duration: 1
+      }),
+      onLeave: el => gsap.to(el, {
+        opacity: 0,
+        scale: 0,
+        duration: 1
+      })
+    })
+
   }
 
   return (
@@ -96,7 +139,7 @@ const Projects = () => {
                 <p className={styles.filter}>React</p>
               </Col>
               <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>Javascript</p>
+                <p className={styles.filter}>JavaScript</p>
               </Col>
               <Col className={styles.filterContainer} role="button" ref={filter}>
                 <p className={styles.filter}>Node.js</p>
