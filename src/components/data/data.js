@@ -82,7 +82,7 @@ const portfolio = [
 ];
 
 const filters = [
-  "JavaScript", "React", "Node.js", "MongoDB", "Python", "D3.js", "All"
+  "All", "React", "JavaScript",  "Node.js", "Python", "D3.js", 
 ];
 
 export { portfolio, filters }
