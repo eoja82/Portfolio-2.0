@@ -81,8 +81,8 @@ const portfolio = [
   },
 ];
 
-const filters = [
+const filterList = [
   "All", "React", "JavaScript",  "Node.js", "Python", "D3.js", 
 ];
 
-export { portfolio, filters }
+export { portfolio, filterList }
