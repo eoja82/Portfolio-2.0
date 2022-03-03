@@ -3,9 +3,9 @@ import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
 import { Flip, gsap, ScrollTrigger } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
-import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
+import Image from "react-bootstrap/Image"
 import Row from "react-bootstrap/Row"
 
 
@@ -17,9 +17,9 @@ const Projects = () => {
   const container = useRef(null),
         title = useRef(null),
         projects = useRef(null),
+        project = useRef(null),
         titleScroller = useRef(null),
-        card = useRef(null),
-        qCard = gsap.utils.selector(projects),
+        qImageCol = gsap.utils.selector(projects),
         filter = useRef(null),
         activeFilter = useRef(null),
         filters = useRef(null),
@@ -28,17 +28,17 @@ const Projects = () => {
   useEffect(() => {
 
     // animate title on scroll
-    gsap.from(titleScroller.current, {
+    /* gsap.from(titleScroller.current, {
       y: 50,
       opacity: 0,
       duration: .6,
       scrollTrigger: {
-        /* markers: true, */
+        markers: true,
         trigger: title.current,
         start: "top bottom-=100px",
         toggleActions: "play pause resume reverse"
       }
-    })
+    }) */
     
     // animate projects on scroll
     /* qCard(".card").map( card => {
@@ -65,7 +65,7 @@ const Projects = () => {
   function filterProjects(e) {
     const filterState = Flip.getState(activeFilter.current),
           filterTarget = e.target.tagName === "P" ? e.target.parentElement : e.target,
-          projects = qCard(".col"),
+          projects = qImageCol(".col"),
           projectsState = Flip.getState(projects)
 
     let clicked
@@ -143,17 +143,8 @@ const Projects = () => {
             <Row xs={1} s={1} md={2} lg={2} xl={3} className={styles.projects} ref={projects}>
               {portfolio.map( (x, i) => {
                 return (
-                  <Col className={styles.flipCard} style={{padding: "8px"}} key={i}>
-                    <Card className={styles.cardInner + " bg-dark"} style={{border: "none"}} ref={card}>
-                      <div className={styles.cardFront}>
-                        <Card.Img src={withPrefix(x.src)} alt={x.alt} />
-                      </div>
-                      <div className={styles.cardBack}>
-                        <Card.Body>
-                          <Card.Title>{x.alt}</Card.Title>
-                        </Card.Body>
-                      </div>
-                    </Card>
+                  <Col className={styles.imageCol} key={i} ref={project}>
+                    <Image src={x.src} alt={x.alt} className={styles.image} />
                   </Col>
                 )
               })}
