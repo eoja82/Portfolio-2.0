@@ -49,7 +49,8 @@ const Projects = () => {
     } else {
       clicked = filterTarget.firstElementChild.innerText
     }
-      
+    
+    // animate .activeFilter background
     filterTarget.appendChild(activeFilter.current)
 
     Flip.from(filterState, {
@@ -58,7 +59,7 @@ const Projects = () => {
       scale: true
     })
 
-    //console.log(projects[0].style.display)
+    // filter / animate projects in and out
     projects.forEach( (project, i) => {
       if (portfolio[i].skills.includes(clicked) || clicked === "All") {
         project.style.display = "block"
