@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
-import { Flip, gsap, ScrollTrigger } from "gsap/all"
+import { Flip, gsap } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row"
 
 
 if (typeof window !== undefined) {
-  gsap.registerPlugin(Flip, ScrollTrigger)
+  gsap.registerPlugin(Flip)
 }
 
 const Projects = () => {
@@ -26,33 +26,6 @@ const Projects = () => {
         qFilter = gsap.utils.selector(filters)
 
   useEffect(() => {
-
-    // animate title on scroll
-    /* gsap.from(titleScroller.current, {
-      y: 50,
-      opacity: 0,
-      duration: .6,
-      scrollTrigger: {
-        markers: true,
-        trigger: title.current,
-        start: "top bottom-=100px",
-        toggleActions: "play pause resume reverse"
-      }
-    }) */
-    
-    // animate projects on scroll
-    /* qCard(".card").map( card => {
-      return gsap.from(card, {
-        y: 50,
-        opacity: 0,
-        duration: .6,
-        scrollTrigger: {
-          trigger: card,
-          start: "top bottom-=100px",
-          toggleActions: "play pause resume reverse"
-        }
-      })
-    }) */
 
     // add click event to filters
     qFilter(".col").forEach( filter => {
