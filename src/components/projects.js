@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
 import { Flip, gsap, ScrollTrigger } from "gsap/all"
-import { portfolio, filters } from "./data/data"
+import { portfolio, filterList } from "./data/data"
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -131,25 +131,14 @@ const Projects = () => {
           </div>
           <Container>
             <Row className={styles.filters} ref={filters} xs={3} s={3} md={6} lg={6}>
-              <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>All</p>
-                <div className={styles.activeFilter} ref={activeFilter}></div>
-              </Col>
-              <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>React</p>
-              </Col>
-              <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>JavaScript</p>
-              </Col>
-              <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>Node.js</p>
-              </Col>
-              <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>Python</p>
-              </Col>
-              <Col className={styles.filterContainer} role="button" ref={filter}>
-                <p className={styles.filter}>D3.js</p>
-              </Col>
+              {filterList.map( (x, i) => {
+                return (
+                  <Col className={styles.filterContainer} role="button" key={i} ref={filter}>
+                    <p className={styles.filter}>{x}</p>
+                    {i === 0 ? (<div className={styles.activeFilter} ref={activeFilter}></div>) : null}
+                  </Col>
+                )
+              })}
             </Row>
             <Row xs={1} s={1} md={2} lg={2} xl={3} className={styles.projects} ref={projects}>
               {portfolio.map( (x, i) => {
