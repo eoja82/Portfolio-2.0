@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useLayoutEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
 import { Flip, gsap } from "gsap/all"
@@ -25,12 +25,19 @@ const Projects = () => {
         filters = useRef(null),
         qFilter = gsap.utils.selector(filters)
 
-  useEffect(() => {
+  let resizeId
+
+  useLayoutEffect(() => {
 
     // add click event to filters
     qFilter(".col").forEach( filter => {
       filter.addEventListener("click", filterProjects)
     })
+
+    // make sure first image is loaded then set parent element height
+    qImageCol(".col")[0].firstElementChild.addEventListener("load", imageLoaded)
+    
+    window.addEventListener("resize", resizing)
 
   })
 
@@ -63,8 +70,10 @@ const Projects = () => {
     projects.forEach( (project, i) => {
       if (portfolio[i].skills.includes(clicked) || clicked === "All") {
         project.style.display = "block"
+        project.classList.add("active")
       } else {
         project.style.display = "none"
+        project.classList.remove("active")
       }
     })
 
@@ -93,6 +102,33 @@ const Projects = () => {
 
   }
 
+  function imageLoaded(e) {
+    setImageColHeight(e.target.height)
+  }
+
+  // sets .imageCol heights onload and resize
+  function setImageColHeight(height) {
+    qImageCol(".col").forEach( x => {
+      x.style.height = `${height + 16}px`
+    })
+  }
+
+  // reset .imageCol on resize
+  function resizing() {
+    clearTimeout(resizeId)
+    resizeId = setTimeout(doneResizing, 500)
+  }
+
+  function doneResizing() {
+    const cols = qImageCol(".col")
+
+    for (let i = 0; i < cols.length; i++) {
+      if (cols[i].classList.contains("active")) {
+        setImageColHeight(cols[i].firstElementChild.height)
+      }
+    }
+  }
+
   return (
     <div>
       <Container fluid="true" className={styles.container} ref={container}style={{backgroundImage: `url(${withPrefix("/img/codeLeft.jpeg")})`}}>
@@ -117,8 +153,8 @@ const Projects = () => {
             <Row xs={1} s={1} md={2} lg={2} xl={3} className={styles.projects} ref={projects}>
               {portfolio.map( (x, i) => {
                 return (
-                  <Col className={styles.imageCol} key={i} ref={project}>
-                    <Image src={x.src} alt={x.alt} className={styles.image} />
+                  <Col className={styles.imageCol + " active"} key={i} ref={project}>
+                    <Image fluid src={x.src} alt={x.alt} className={styles.image} />
                   </Col>
                 )
               })}
