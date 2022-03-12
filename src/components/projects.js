@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
 import { Flip, gsap } from "gsap/all"
@@ -19,25 +19,27 @@ const Projects = () => {
         projects = useRef(null),
         project = useRef(null),
         titleScroller = useRef(null),
-        qImageCol = gsap.utils.selector(projects),
+        qProjects = gsap.utils.selector(projects),
         filter = useRef(null),
         activeFilter = useRef(null),
         filters = useRef(null),
         qFilter = gsap.utils.selector(filters)
 
-  let resizeId
+  let resizeId,
+      projectColumns,
+      projectsContainerHeight
 
-  useLayoutEffect(() => {
+  useEffect(() => {
 
     // add click event to filters
     qFilter(".col").forEach( filter => {
       filter.addEventListener("click", filterProjects)
     })
 
-    // make sure first image is loaded then set parent element height
-    qImageCol(".col")[0].firstElementChild.addEventListener("load", imageLoaded)
+    setProjectColumns()
     
     window.addEventListener("resize", resizing)
+    //window.addEventListener("resize", () => console.log(window.innerWidth))
 
   })
 
@@ -45,10 +47,12 @@ const Projects = () => {
   function filterProjects(e) {
     const filterState = Flip.getState(activeFilter.current),
           filterTarget = e.target.tagName === "P" ? e.target.parentElement : e.target,
-          projects = qImageCol(".col"),
-          projectsState = Flip.getState(projects)
+          projectTargets = qProjects(".col"),
+          projectsState = Flip.getState(projectTargets),
+          containerState = Flip.getState(projects.current)
 
-    let clicked
+    let clicked,
+      activeProjects = 0
     
     // return if user clicks activeFilter else assign clicked
     if (filterTarget === activeFilter.current) {
@@ -67,15 +71,18 @@ const Projects = () => {
     })
 
     // filter / animate projects in and out
-    projects.forEach( (project, i) => {
+    projectTargets.forEach( (project, i) => {
       if (portfolio[i].skills.includes(clicked) || clicked === "All") {
         project.style.display = "block"
         project.classList.add("active")
+        activeProjects++
       } else {
         project.style.display = "none"
         project.classList.remove("active")
+        activeProjects--
       }
     })
+    //console.log("activeProjects", activeProjects)
 
     Flip.from(projectsState, {
       duration: 1,
@@ -100,33 +107,32 @@ const Projects = () => {
       })
     })
 
+    // animate projects container height
+
+    
   }
 
-  function imageLoaded(e) {
-    setImageColHeight(e.target.height)
-  }
-
-  // sets .imageCol heights onload and resize
-  function setImageColHeight(height) {
-    qImageCol(".col").forEach( x => {
-      x.style.height = `${height + 16}px`
-    })
-  }
-
-  // reset .imageCol on resize
+  // reset projectColumns when done resizing
   function resizing() {
     clearTimeout(resizeId)
     resizeId = setTimeout(doneResizing, 500)
   }
 
   function doneResizing() {
-    const cols = qImageCol(".col")
+    setProjectColumns()
+  }
 
-    for (let i = 0; i < cols.length; i++) {
-      if (cols[i].classList.contains("active")) {
-        setImageColHeight(cols[i].firstElementChild.height)
-      }
+  function setProjectColumns() {
+    const width = window.innerWidth
+
+    if (width > 1199) {
+      projectColumns = 3
+    } else if (width > 767) {
+      projectColumns = 2
+    } else {
+      projectColumns = 1
     }
+    console.log("projectColumns", projectColumns)
   }
 
   return (
