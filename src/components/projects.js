@@ -26,8 +26,10 @@ const Projects = () => {
         qFilter = gsap.utils.selector(filters)
 
   let resizeId,
+      imageColHeight,
       projectColumns,
-      projectsContainerHeight
+      projectsContainerHeight,
+      activeProjects = portfolio.length
 
   useEffect(() => {
 
@@ -36,11 +38,12 @@ const Projects = () => {
       filter.addEventListener("click", filterProjects)
     })
 
+    setImageColHeight()
     setProjectColumns()
+    setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-    //window.addEventListener("resize", () => console.log(window.innerWidth))
-
+    
   })
 
   // animate activeFilter color and filter projects
@@ -48,11 +51,9 @@ const Projects = () => {
     const filterState = Flip.getState(activeFilter.current),
           filterTarget = e.target.tagName === "P" ? e.target.parentElement : e.target,
           projectTargets = qProjects(".col"),
-          projectsState = Flip.getState(projectTargets),
-          containerState = Flip.getState(projects.current)
+          projectsState = Flip.getState(projectTargets)
 
-    let clicked,
-      activeProjects = 0
+    let clicked
     
     // return if user clicks activeFilter else assign clicked
     if (filterTarget === activeFilter.current) {
@@ -73,13 +74,13 @@ const Projects = () => {
     // filter / animate projects in and out
     projectTargets.forEach( (project, i) => {
       if (portfolio[i].skills.includes(clicked) || clicked === "All") {
+        if (!project.classList.contains("active")) activeProjects++
         project.style.display = "block"
         project.classList.add("active")
-        activeProjects++
       } else {
+        if (project.classList.contains("active")) activeProjects--
         project.style.display = "none"
         project.classList.remove("active")
-        activeProjects--
       }
     })
     //console.log("activeProjects", activeProjects)
@@ -108,7 +109,13 @@ const Projects = () => {
     })
 
     // animate projects container height
-
+    gsap.fromTo(projects.current, {
+      height: `${projects.current.clientHeight}px`
+    }, {
+      height: `${(Math.ceil(activeProjects / projectColumns) * imageColHeight) + 72}px`,
+      duration: 1.2,
+      ease: "power1.inOut"
+    })
     
   }
 
@@ -119,7 +126,19 @@ const Projects = () => {
   }
 
   function doneResizing() {
+    setImageColHeight()
     setProjectColumns()
+    setProjectsContainerHeight()  
+  }
+
+  function setImageColHeight() {
+    const cols = qProjects(".col")
+    for (let i = 0; i < cols.length; i++) {
+      if (cols[i].classList.contains("active")) {
+        imageColHeight = cols[i].clientHeight
+      }
+    }
+    //console.log("imageColHeight", imageColHeight)
   }
 
   function setProjectColumns() {
@@ -132,7 +151,14 @@ const Projects = () => {
     } else {
       projectColumns = 1
     }
-    console.log("projectColumns", projectColumns)
+    //console.log("projectColumns", projectColumns)
+  }
+
+  function setProjectsContainerHeight() {
+    projectsContainerHeight = Math.ceil(activeProjects / projectColumns) * imageColHeight
+    projects.current.style.height = `${projectsContainerHeight + 72}px`
+    //console.log("projectsContainerHeight", projectsContainerHeight)
+    //console.log("projects.current.height", projects.current.style.height)
   }
 
   return (
