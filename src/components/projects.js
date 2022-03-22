@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Image from "react-bootstrap/Image"
 import Row from "react-bootstrap/Row"
+import LargeHeading from "./lgHeading"
 
 
 if (typeof window !== undefined) {
@@ -43,6 +44,7 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
+    window.addEventListener("resize", () => console.log(window.innerWidth))
     
   })
 
@@ -166,13 +168,15 @@ const Projects = () => {
       <Container fluid="true" className={styles.container} ref={container}style={{backgroundImage: `url(${withPrefix("/img/codeLeft.jpeg")})`}}>
         <Container fliud="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
-            <div ref={titleScroller}>
-              <h3 className={styles.title} ref={title}>PROJECTS</h3>
-              <div className={styles.underline}></div>
+            <LargeHeading title="Portfolio" />
+            <div ref={titleScroller} className={styles.titleScroller}>
+              <div className={styles.lineBefore}></div>
+              <h3 className={styles.title} ref={title}>Projects</h3>
+              <div className={styles.lineAfter}></div>
             </div>
           </div>
           <Container>
-            <Row className={styles.filters} ref={filters} xs={3} s={3} md={6} lg={6}>
+            <Row className={styles.filters} ref={filters} xs={3} sm={3} md={6} lg={6}>
               {filterList.map( (x, i) => {
                 return (
                   <Col className={styles.filterContainer} role="button" key={i} ref={filter}>
@@ -182,7 +186,7 @@ const Projects = () => {
                 )
               })}
             </Row>
-            <Row xs={1} s={1} md={2} lg={2} xl={3} className={styles.projects} ref={projects}>
+            <Row xs={1} sm={1} md={2} lg={2} xl={3} className={styles.projects} ref={projects}>
               {portfolio.map( (x, i) => {
                 return (
                   <Col className={styles.imageCol + " active"} key={i} ref={project}>
