@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { withPrefix } from "gatsby"
-import { Flip, gsap } from "gsap/all"
+import { Flip, gsap, ScrollTrigger } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -11,7 +11,7 @@ import LargeHeading from "./lgHeading"
 
 
 if (typeof window !== undefined) {
-  gsap.registerPlugin(Flip)
+  gsap.registerPlugin(Flip, ScrollTrigger)
 }
 
 const Projects = () => {
@@ -44,7 +44,15 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-    window.addEventListener("resize", () => console.log(window.innerWidth))
+
+    gsap.to(titleScroller.current, {
+      y: "-100px",
+      scrollTrigger: {
+        trigger: titleScroller.current,
+        start: "top bottom",
+        scrub: true
+      }
+    })
     
   })
 
@@ -85,7 +93,6 @@ const Projects = () => {
         project.classList.remove("active")
       }
     })
-    //console.log("activeProjects", activeProjects)
 
     Flip.from(projectsState, {
       duration: 1,
@@ -140,7 +147,6 @@ const Projects = () => {
         imageColHeight = cols[i].clientHeight
       }
     }
-    //console.log("imageColHeight", imageColHeight)
   }
 
   function setProjectColumns() {
@@ -153,29 +159,25 @@ const Projects = () => {
     } else {
       projectColumns = 1
     }
-    //console.log("projectColumns", projectColumns)
   }
 
   function setProjectsContainerHeight() {
     projectsContainerHeight = Math.ceil(activeProjects / projectColumns) * imageColHeight
     projects.current.style.height = `${projectsContainerHeight + 72}px`
-    //console.log("projectsContainerHeight", projectsContainerHeight)
-    //console.log("projects.current.height", projects.current.style.height)
   }
 
   return (
     <div>
       <Container fluid="true" className={styles.container} ref={container}style={{backgroundImage: `url(${withPrefix("/img/codeLeft.jpeg")})`}}>
-        <Container fliud="true" className={styles.projectsContainer}>
+        <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" />
             <div ref={titleScroller} className={styles.titleScroller}>
               <div className={styles.lineBefore}></div>
               <h3 className={styles.title} ref={title}>Projects</h3>
-              <div className={styles.lineAfter}></div>
             </div>
           </div>
-          <Container>
+          <Container className={styles.projectsAndFilters}>
             <Row className={styles.filters} ref={filters} xs={3} sm={3} md={6} lg={6}>
               {filterList.map( (x, i) => {
                 return (
