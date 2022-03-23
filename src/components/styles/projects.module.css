@@ -38,34 +38,41 @@
   background-attachment: fixed;
   width: 100vw;
   height: auto;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
 }
 .titleContainer {
   background-color: var(--lightBackground);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 2rem;
 }
-.title {
-  text-align: center;
-  color: var(--gray);
-  font-size: 3rem;
-  font-weight: lighter;
-  margin: 3rem 0 1.25rem 0;
+.titleScroller {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: -2rem;
+  overflow: hidden;
 }
-.underline {
-  width: 50%;
-  height: 2px;
-  border-radius: 1px;
+.title {
+  color: black;
+  font-size: 3rem;
+  
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+.lineBefore {
+  width: 100px;
+  height: 4px;
   background-color: var(--lightBlue);
-  margin: 0 auto;
+  margin: 0 2rem 0;
+}
+.projectsAndFilters {
+  margin-top: -5rem;
 }
 .projectsContainer {
-  width: 100%;
   background-color: var(--lightBackground);
 }
 .filterContainer {
