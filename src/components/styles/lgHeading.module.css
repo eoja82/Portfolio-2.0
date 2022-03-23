@@ -1,11 +1,9 @@
 .header {
   font-size: 10rem;
   letter-spacing: 5px;
-  position: relative;
-  top: 0;
-  left: 0;
   color: transparent;
   background: rgba(74,74,74,0.18);
   background-clip: text;
   text-shadow: -8px 11px 25px rgba(255,255,255,1);
+  padding-left: 5px;
 }
