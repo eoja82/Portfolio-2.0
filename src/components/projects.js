@@ -33,6 +33,8 @@ const Projects = () => {
       activeProjects = portfolio.length
 
   useEffect(() => {
+    // make sure scrollTriggers are in correct place after images load
+    ScrollTrigger.refresh(true)
 
     // add click event to filters
     qFilter(".col").forEach( filter => {
@@ -47,10 +49,12 @@ const Projects = () => {
 
     gsap.to(titleScroller.current, {
       y: "-100px",
+      opacity: 1,
       scrollTrigger: {
         trigger: titleScroller.current,
         start: "top bottom",
-        scrub: true
+        scrub: true,
+        markers: true
       }
     })
     
@@ -123,11 +127,11 @@ const Projects = () => {
     }, {
       height: `${(Math.ceil(activeProjects / projectColumns) * imageColHeight) + 72}px`,
       duration: 1.2,
-      ease: "power1.inOut"
+      ease: "power1.inOut",
+      onComplete: () => ScrollTrigger.refresh(true)
     })
-    
   }
-
+  
   // reset projectColumns when done resizing
   function resizing() {
     clearTimeout(resizeId)
@@ -171,7 +175,7 @@ const Projects = () => {
       <Container fluid="true" className={styles.container} ref={container}style={{backgroundImage: `url(${withPrefix("/img/codeLeft.jpeg")})`}}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
-            <LargeHeading title="Portfolio" />
+            <LargeHeading title="Portfolio" textAlign="left" />
             <div ref={titleScroller} className={styles.titleScroller}>
               <div className={styles.lineBefore}></div>
               <h3 className={styles.title} ref={title}>Projects</h3>
