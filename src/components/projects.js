@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container"
 import Image from "react-bootstrap/Image"
 import Row from "react-bootstrap/Row"
 import LargeHeading from "./lgHeading"
+import SubHeading from "./subHeading"
 
 
 if (typeof window !== undefined) {
@@ -16,10 +17,8 @@ if (typeof window !== undefined) {
 
 const Projects = () => {
   const container = useRef(null),
-        title = useRef(null),
         projects = useRef(null),
         project = useRef(null),
-        titleScroller = useRef(null),
         qProjects = gsap.utils.selector(projects),
         filter = useRef(null),
         activeFilter = useRef(null),
@@ -46,17 +45,6 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-
-    gsap.to(titleScroller.current, {
-      y: "-100px",
-      opacity: 1,
-      scrollTrigger: {
-        trigger: titleScroller.current,
-        start: "top bottom",
-        scrub: true,
-        markers: true
-      }
-    })
     
   })
 
@@ -176,10 +164,12 @@ const Projects = () => {
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" textAlign="left" />
-            <div ref={titleScroller} className={styles.titleScroller}>
-              <div className={styles.lineBefore}></div>
-              <h3 className={styles.title} ref={title}>Projects</h3>
-            </div>
+            <SubHeading 
+              text="Projects" 
+              justifyContent="start" 
+              flexDirection="row"
+              marginRight="2rem" 
+            />
           </div>
           <Container className={styles.projectsAndFilters}>
             <Row className={styles.filters} ref={filters} xs={3} sm={3} md={6} lg={6}>
