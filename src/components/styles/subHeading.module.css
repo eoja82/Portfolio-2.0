@@ -1,0 +1,19 @@
+.titleScroller {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+}
+.title {
+  color: black;
+  font-size: 3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+.line {
+  width: 100px;
+  height: 4px;
+  background-color: var(--lightBlue);
+}
