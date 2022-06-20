@@ -4,26 +4,3 @@
   flex-direction: column;
   margin-bottom: 2rem;
 }
-.titleScroller {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  /* margin-right: -2rem; */
-  overflow: hidden;
-  justify-content: end;
-  opacity: 0;
-}
-.title {
-  color: black;
-  font-size: 3rem;
-  font-weight: 700;
-  position: relative;
-  z-index: 1;
-}
-.lineAfter {
-  width: 100px;
-  height: 4px;
-  background-color: var(--lightBlue);
-  margin-left: 2rem;
-}
