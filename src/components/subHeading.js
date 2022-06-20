@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { gsap, ScrollTrigger } from "gsap/all"
-//import PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import * as styles from "./styles/subHeading.module.css"
 
 
@@ -42,6 +42,14 @@ const SubHeading = (props) => {
       <h3 className={styles.title} ref={title}>{props.text}</h3>
     </div>
   )
+}
+
+SubHeading.propTypes = {
+  text: PropTypes.string.isRequired,
+  justifyContent: PropTypes.oneOf(["start", "end"]).isRequired,
+  flexDirection: PropTypes.oneOf(["row", "row-reverse"]).isRequired,
+  marginLeft: PropTypes.string,
+  marginRight: PropTypes.string
 }
 
 export default SubHeading
