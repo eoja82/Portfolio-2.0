@@ -9,17 +9,21 @@ import * as styles from "./styles/techIcons.module.css"
 
 const TechIcons = (props) => {
   return (
-    <Container className={styles.container}>
+    <Container fluid className={styles.container}>
+      <Container>
       <Row>
         {props.data.map( x => (
-          <Col key={x.title}>
-            <Card className={styles.card}>
-              <Card.Img variant="top" src={x.icon} className={styles.icon}></Card.Img>
-              <Card.Body className="text-muted text-center">{x.title}</Card.Body>
-            </Card>
+          <Col xs={6} sm={4} md={3} lg={2} xl={2} className={styles.col} key={x.title}>
+            <div className={styles.wrapper}>
+              <div className={styles.iconContainer}>
+                <img className={styles.icon} src={x.src} alt={x.title}></img>
+              </div>
+              <p className={styles.title + " text-muted text-center"}>{x.title}</p>
+            </div>
           </Col>
         ))}
       </Row>
+      </Container>
     </Container>
   )
 }
