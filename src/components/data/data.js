@@ -85,4 +85,14 @@ const filterList = [
   "All", "React", "JavaScript",  "Node.js", "Python", "D3.js", 
 ];
 
-export { portfolio, filterList }
+const frontEnd = [
+  {title: "HTML", src: "./icons/html.png", borderColor: "rgb()"},
+  {title: "CSS", src: "./icons/css.png", borderColor: "rgb()"},
+  {title: "JavaScript", src: "./icons/javascript.png", borderColor: "rgb()"},
+  {title: "React", src: "./icons/react.png", borderColor: "rgb()"},
+  {title: "Gatsby", src: "./icons/gatsby.png", borderColor: "rgb()"},
+  {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "rgb()"}, 
+  {title: "W3.CSS", src: "./icons/w3css.webp", borderColor: "rgb()"}
+]
+
+export { portfolio, filterList, frontEnd }
