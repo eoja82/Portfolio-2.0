@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/development.module.css"
-import { gsap, ScrollTrigger } from "gsap/all"
 import LargeHeading from "./lgHeading"
 import SubHeading from "./subHeading"
+import TechIcons from "./techIcons"
+import { frontEnd } from "./data/data.js"
+import Card from "react-bootstrap/Card"
+import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
-
-
-if (typeof window !== undefined) {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import Row from "react-bootstrap/Row"
 
 const Development = () => {
   return (
@@ -23,6 +22,7 @@ const Development = () => {
             marginLeft="2rem" 
           />
         </div>
+        <TechIcons data={frontEnd} />
       </Container>
     </div>
   )
