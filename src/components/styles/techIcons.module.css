@@ -1,6 +1,7 @@
 .container {
   margin-top: -3rem;
-  background-color: rgb(250, 250, 250);
+  background-color: var(--lightBackground);
+  padding-bottom: 100px;
 }
 .col {
   display: flex;
@@ -11,14 +12,24 @@
   box-shadow: -2px 8px 19.95px 1.05px rgba(156, 156, 156, 0.24);
 }
 .iconContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+.iconWrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 8px 8px 0 8px;
+  width: 100%;
+  height: 100%;
 }
 .icon {
-  max-width: 75%;
-  max-height: 75%;
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: contain;
 }
 .title {
   margin-top: 1rem;
