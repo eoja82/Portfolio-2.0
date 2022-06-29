@@ -79,20 +79,27 @@ const portfolio = [
     about: "Built with React, Bootstrap, HTML, and CSS",
     skills: ["React", "Bootstrap", "HTML", "CSS"]
   },
-];
+]
 
 const filterList = [
   "All", "React", "JavaScript",  "Node.js", "Python", "D3.js", 
-];
-
-const frontEnd = [
-  {title: "HTML", src: "./icons/html.png", borderColor: "rgb()"},
-  {title: "CSS", src: "./icons/css.png", borderColor: "rgb()"},
-  {title: "JavaScript", src: "./icons/javascript.png", borderColor: "rgb()"},
-  {title: "React", src: "./icons/react.png", borderColor: "rgb()"},
-  {title: "Gatsby", src: "./icons/gatsby.png", borderColor: "rgb()"},
-  {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "rgb()"}, 
-  {title: "W3.CSS", src: "./icons/w3css.webp", borderColor: "rgb()"}
 ]
 
-export { portfolio, filterList, frontEnd }
+const frontEnd = [
+  {title: "HTML", src: "./icons/html.png", borderColor: "#ff5722"},
+  {title: "CSS", src: "./icons/css.png", borderColor: "#2196f3"},
+  {title: "JavaScript", src: "./icons/javascript.png", borderColor: "#ffdf00"},
+  {title: "React", src: "./icons/react.png", borderColor: "#00d8ff"},
+  {title: "Gatsby", src: "./icons/gatsby.png", borderColor: "#744c9e"},
+  {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "#553b7d"}, 
+  {title: "W3.CSS", src: "./icons/w3css.webp", borderColor: "#08a261"}
+]
+
+const backEnd = [
+  {title: "Node.js", src: "./icons/nodejs.png", borderColor: "#549e44"},
+  {title: "Express", src: "./icons/express.png", borderColor: "#000000"},
+  {title: "Python", src: "./icons/python.png", borderColor: "#35709f"},
+  {title: "Django", src: "./icons/django.png", borderColor: "#000000"}
+]
+
+export { portfolio, filterList, frontEnd, backEnd }
