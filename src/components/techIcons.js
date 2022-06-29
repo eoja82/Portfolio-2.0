@@ -13,7 +13,7 @@ const TechIcons = (props) => {
       <Row>
         {props.data.map( x => (
           <Col xs={6} sm={4} md={3} lg={2} xl={2} className={styles.col} key={x.title}>
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} style={{borderBottom: `5px solid ${x.borderColor}`}}>
               <div className={styles.iconContainer}>
                 <div className={styles.iconWrapper}>
                   <img className={styles.icon} src={x.src} alt={x.title}></img>
