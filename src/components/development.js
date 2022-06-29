@@ -3,11 +3,11 @@ import * as styles from "./styles/development.module.css"
 import LargeHeading from "./lgHeading"
 import SubHeading from "./subHeading"
 import TechIcons from "./techIcons"
-import { frontEnd } from "./data/data.js"
-import Card from "react-bootstrap/Card"
-import Col from "react-bootstrap/Col"
+import { backEnd, frontEnd } from "./data/data.js"
+//import Card from "react-bootstrap/Card"
+//import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
+//import Row from "react-bootstrap/Row"
 
 const Development = () => {
   return (
@@ -23,6 +23,15 @@ const Development = () => {
           />
         </div>
         <TechIcons data={frontEnd} />
+        <div className={styles.titleContainer}>
+          <SubHeading 
+            text="Back End"
+            justifyContent="start"
+            flexDirection="row"
+            marginRight="2rem"
+          />
+        </div>
+        <TechIcons data={backEnd} />
       </Container>
     </div>
   )
