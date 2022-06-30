@@ -10,7 +10,7 @@ const TechIcons = (props) => {
   return (
     <Container fluid className={styles.container}>
       <Container>
-      <Row>
+      <Row className={styles.row}>
         {props.data.map( x => (
           <Col xs={6} sm={4} md={3} lg={2} xl={2} className={styles.col} key={x.title}>
             <div className={styles.wrapper} style={{borderBottom: `5px solid ${x.borderColor}`}}>
