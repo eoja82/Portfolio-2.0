@@ -92,6 +92,7 @@ const frontEnd = [
   {title: "React", src: "./icons/react.png", borderColor: "#00d8ff"},
   {title: "Gatsby", src: "./icons/gatsby.png", borderColor: "#744c9e"},
   {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "#553b7d"},
+  {title: "GSAP", src: "./icons/gsap.jpg", borderColor: "#93d300"},
   {title: "D3.js", src: "./icons/d3.png", borderColor: "#f89c41"},
   {title: "W3.CSS", src: "./icons/w3css.webp", borderColor: "#08a261"}
 ]
