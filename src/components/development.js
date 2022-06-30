@@ -3,7 +3,7 @@ import * as styles from "./styles/development.module.css"
 import LargeHeading from "./lgHeading"
 import SubHeading from "./subHeading"
 import TechIcons from "./techIcons"
-import { backEnd, frontEnd } from "./data/data.js"
+import { backEnd, database, frontEnd } from "./data/data.js"
 //import Card from "react-bootstrap/Card"
 //import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -32,6 +32,15 @@ const Development = () => {
           />
         </div>
         <TechIcons data={backEnd} />
+        <div className={styles.titleContainer}>
+          <SubHeading 
+            text="Database"
+            justifyContent="end"
+            flexDirection="row-reverse"
+            marginLeft="2rem"
+          />
+        </div>
+        <TechIcons data={database} />
       </Container>
     </div>
   )
