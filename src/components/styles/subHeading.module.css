@@ -1,3 +1,20 @@
+:root {
+  --fontSize: 4vw;
+  --titleMarginBottom: .5rem;
+  --lineWidth: 100px;
+}
+@media only screen and (max-width: 768px) {
+  :root {
+    --fontSize: 5vw;
+  }
+}
+@media only screen and (max-width: 440px) {
+  :root {
+    --fontSize: 7vw;
+    --lineWidth: 80px;
+    --titleMarginBottom: 0;
+  }
+}
 .titleScroller {
   display: flex;
   flex-wrap: nowrap;
@@ -7,13 +24,14 @@
 }
 .title {
   color: black;
-  font-size: 3rem;
+  font-size: var(--fontSize);
   font-weight: 700;
   position: relative;
+  margin-bottom: var(--titleMarginBottom);
   z-index: 1;
 }
 .line {
-  width: 100px;
+  width: var(--lineWidth);
   height: 4px;
   background-color: var(--lightBlue);
 }
