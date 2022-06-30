@@ -91,15 +91,23 @@ const frontEnd = [
   {title: "JavaScript", src: "./icons/javascript.png", borderColor: "#ffdf00"},
   {title: "React", src: "./icons/react.png", borderColor: "#00d8ff"},
   {title: "Gatsby", src: "./icons/gatsby.png", borderColor: "#744c9e"},
-  {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "#553b7d"}, 
+  {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "#553b7d"},
+  {title: "D3.js", src: "./icons/d3.png", borderColor: "#f89c41"},
   {title: "W3.CSS", src: "./icons/w3css.webp", borderColor: "#08a261"}
 ]
 
 const backEnd = [
   {title: "Node.js", src: "./icons/nodejs.png", borderColor: "#549e44"},
   {title: "Express", src: "./icons/express.png", borderColor: "#000000"},
+  {title: "Mongoose", src: "./icons/mongoose.png", borderColor: "#880000"},
   {title: "Python", src: "./icons/python.png", borderColor: "#35709f"},
   {title: "Django", src: "./icons/django.png", borderColor: "#000000"}
 ]
 
-export { portfolio, filterList, frontEnd, backEnd }
+const database = [
+  {title: "MongoDB", src: "./icons/mongodb.svg", borderColor: "#267000"},
+  {title: "SQL", src: "./icons/sql.png", borderColor: "#ffd54f"},
+  {title: "SQLite", src: "./icons/sqlite.png", borderColor: "#7fc9ef"}
+]
+
+export { backEnd, database, filterList, frontEnd,  portfolio}
