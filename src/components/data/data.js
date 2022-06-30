@@ -115,11 +115,17 @@ const testing = [
   {title: "Chai", src: "./icons/chai.png", borderColor: "#a1070c"}
 ]
 
+const versionControl = [
+  {title: "Git", src: "./icons/git.png", borderColor: "#de4c36"},
+  {title: "GitHub", src: "./icons/github.png", borderColor: "#000000"}
+]
+
 export { 
   backEnd, 
   database, 
   filterList, 
   frontEnd, 
   portfolio,
-  testing
+  testing,
+  versionControl
 }
