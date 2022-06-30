@@ -110,4 +110,16 @@ const database = [
   {title: "SQLite", src: "./icons/sqlite.png", borderColor: "#7fc9ef"}
 ]
 
-export { backEnd, database, filterList, frontEnd,  portfolio}
+const testing = [
+  {title: "Mocha", src: "./icons/mocha.png", borderColor: "#8d6748"},
+  {title: "Chai", src: "./icons/chai.png", borderColor: "#a1070c"}
+]
+
+export { 
+  backEnd, 
+  database, 
+  filterList, 
+  frontEnd, 
+  portfolio,
+  testing
+}
