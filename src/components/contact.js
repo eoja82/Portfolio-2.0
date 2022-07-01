@@ -7,13 +7,13 @@ import * as styles from "./styles/contact.module.css"
 
 const Contact = () => {
   return (
-    <Container fluid className={styles.componentContainer}>
+    <Container fluid="true" className={styles.componentContainer}>
       <LargeHeading title="Contact" textAlign="left" />
       <SubHeading 
         text="Get In Touch"
         justifyContent="start"
         flexDirection="row"
-        marginLeft="2rem"
+        marginRight="2rem"
       />
     </Container>
   )
