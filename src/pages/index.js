@@ -1,4 +1,5 @@
 import React from "react"
+import Contact from "../components/contact"
 import Intro from "../components/intro"
 import Layout from "../components/layout"
 import Projects from "../components/projects"
@@ -12,7 +13,7 @@ export default function Home() {
       <Intro />
       <Projects />
       <Development />
-      <div style={{height: "100vh", backgroundColor: "gray"}}>Temporary</div>
+      <Contact />
       {/* About section, color icons for front end
           back end, database, mobile?, testing and other */}
     </Layout>
