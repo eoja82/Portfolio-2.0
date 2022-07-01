@@ -1,0 +1,4 @@
+.componentContainer {
+  background-color: var(--lightBackground);
+  min-height: 100vh;
+}
