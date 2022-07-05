@@ -160,7 +160,7 @@ const Projects = () => {
 
   return (
     <div>
-      <Container fluid="true" className={styles.container} ref={container}style={{backgroundImage: `url(${withPrefix("/img/codeLeft.jpeg")})`}}>
+      <Container fluid="true" className={styles.container} ref={container}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" textAlign="left" />
