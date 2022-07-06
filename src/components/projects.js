@@ -160,7 +160,7 @@ const Projects = () => {
 
   return (
     <div>
-      <Container fluid="true" className={styles.container} ref={container}>
+      <Container fluid="true" ref={container}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" textAlign="left" />
@@ -187,7 +187,7 @@ const Projects = () => {
                 return (
                   <Col className={styles.imageCol + " active"} key={i} ref={project}>
                     <div className={styles.imageContainer}>
-                      <Image fluid src={x.src} alt={x.alt} className={styles.image} />
+                      <Image fluid src={x.src} alt={x.alt} />
                       <div className={styles.overlay}>
                         <h2 className={styles.projectTitle}>{x.alt}</h2>
                         <div className={styles.projectTech}>
