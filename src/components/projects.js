@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
-import { withPrefix } from "gatsby"
 import { Flip, gsap, ScrollTrigger } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
+import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Image from "react-bootstrap/Image"
@@ -186,7 +186,23 @@ const Projects = () => {
               {portfolio.map( (x, i) => {
                 return (
                   <Col className={styles.imageCol + " active"} key={i} ref={project}>
-                    <Image fluid src={x.src} alt={x.alt} className={styles.image} />
+                    <div className={styles.imageContainer}>
+                      <Image fluid src={x.src} alt={x.alt} className={styles.image} />
+                      <div className={styles.overlay}>
+                        <h2 className={styles.projectTitle}>{x.alt}</h2>
+                        <div className={styles.projectTech}>
+                          {x.skills.map( (skill, key) => {
+                            return (
+                              <p className={styles.skill} key={key}>{skill}</p>
+                            )
+                          })}
+                        </div>
+                        <div>
+                          <Button variant="outline-light" href={x.view} target="_blank" className={styles.linkButton}>VIEW</Button>
+                          <Button variant="outline-light" href={x.code} target="_blank" className={styles.linkButton}>CODE</Button>
+                        </div>
+                      </div>
+                    </div>
                   </Col>
                 )
               })}
