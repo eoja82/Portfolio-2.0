@@ -45,7 +45,7 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-    
+    window.addEventListener("resize", () => console.log(window.innerWidth))
   })
 
   // animate activeFilter color and filter projects
@@ -160,6 +160,14 @@ const Projects = () => {
 
   return (
     <div>
+      <style type="text/css">
+        {`
+          .btn-outline-light:hover {
+            background-color: rgb(70, 236, 253);
+            border-color: rgb(70, 236, 253);
+          }
+        `}
+      </style>
       <Container fluid="true" ref={container}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
@@ -182,7 +190,7 @@ const Projects = () => {
                 )
               })}
             </Row>
-            <Row xs={1} sm={1} md={2} lg={2} xl={3} className={styles.projects} ref={projects}>
+            <Row xs={1} sm={1} md={2} lg={2} xl={3} xxl={3} className={styles.projects} ref={projects}>
               {portfolio.map( (x, i) => {
                 return (
                   <Col className={styles.imageCol + " active"} key={i} ref={project}>
