@@ -159,38 +159,6 @@ const Projects = () => {
 
   return (
     <div>
-      <style type="text/css">
-        {`
-          /* .row-cols-xxl-3 .imageCol {
-            width: 424px;
-            height: 310px;
-          }
-          .row-cols-xl-3 .imageCol {
-            width: 380px;
-            height: 278.533px;
-          }
-          .row-cols-lg-3 .imageCol {
-            width: 320px;
-            height: 235.633px;
-          }
-          /* .row-cols-md-2 .imageCol {
-            width: 360px;
-            height: 253.383px;
-          }
-          .row-cols-sm-1 .imageCol {
-            width: 424px;
-            height: 310px;
-          } */
-          /* .row-cols-1 .col {
-            width: px;
-            height: px;
-          } */
-          .btn-outline-light:hover {
-            background-color: rgb(70, 236, 253);
-            border-color: rgb(70, 236, 253);
-          } */
-        `}
-      </style>
       <Container fluid="true" ref={container}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
