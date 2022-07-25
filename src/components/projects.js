@@ -5,7 +5,6 @@ import { portfolio, filterList } from "./data/data"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
-import Image from "react-bootstrap/Image"
 import Row from "react-bootstrap/Row"
 import LargeHeading from "./lgHeading"
 import SubHeading from "./subHeading"
@@ -146,7 +145,7 @@ const Projects = () => {
 
     if (width > 1199) {
       projectColumns = 3
-    } else if (width > 767) {
+    } else if (width > 575) {
       projectColumns = 2
     } else {
       projectColumns = 1
@@ -162,10 +161,34 @@ const Projects = () => {
     <div>
       <style type="text/css">
         {`
+          /* .row-cols-xxl-3 .imageCol {
+            width: 424px;
+            height: 310px;
+          }
+          .row-cols-xl-3 .imageCol {
+            width: 380px;
+            height: 278.533px;
+          }
+          .row-cols-lg-3 .imageCol {
+            width: 320px;
+            height: 235.633px;
+          }
+          /* .row-cols-md-2 .imageCol {
+            width: 360px;
+            height: 253.383px;
+          }
+          .row-cols-sm-1 .imageCol {
+            width: 424px;
+            height: 310px;
+          } */
+          /* .row-cols-1 .col {
+            width: px;
+            height: px;
+          } */
           .btn-outline-light:hover {
             background-color: rgb(70, 236, 253);
             border-color: rgb(70, 236, 253);
-          }
+          } */
         `}
       </style>
       <Container fluid="true" ref={container}>
@@ -190,12 +213,12 @@ const Projects = () => {
                 )
               })}
             </Row>
-            <Row xs={1} sm={1} md={2} lg={2} xl={3} xxl={3} className={styles.projects} ref={projects}>
+            <Row xs={1} sm={1} md={2} lg={3} xl={3} xxl={3} className={styles.projects} ref={projects}>
               {portfolio.map( (x, i) => {
                 return (
-                  <Col className={styles.imageCol + " active"} key={i} ref={project}>
+                  <Col className={styles.imageCol + " active imageCol"} key={i} ref={project}>
                     <div className={styles.imageContainer}>
-                      <Image fluid src={x.src} alt={x.alt} />
+                      <img className={styles.projectImg} src={x.src} alt={x.alt}></img>
                       <div className={styles.overlay}>
                         <h2 className={styles.projectTitle}>{x.alt}</h2>
                         <div className={styles.projectTech}>
