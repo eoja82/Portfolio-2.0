@@ -4,32 +4,6 @@
   --lightBackground: rgb(250, 250, 250);
   --darkBackground: rgb(33, 37, 41);
   --hoverColor: rgb(240, 236, 236);
-  --imageColWidth: 432px;
-  --imageColHeight: 313.433px;
-}
-@media only screen and (max-width: 1399px) {
-  :root {
-    --imageColWidth: 372px;
-    --imageColHeight: 270.533px;
-  }
-}
-@media only screen and (max-width: 1199px) {
-  :root {
-    --imageColWidth: 468px;
-    --imageColHeight: 339.183px;
-  }
-}
-@media only screen and (max-width: 991px) {
-  :root {
-    --imageColWidth: 348px;
-    --imageColHeight: 253.383px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  :root {
-    --imageColWidth: calc(100vw - 24px);
-    --imageColHeight: calc((100vw - 24px) / 1.4);
-  }
 }
 .titleContainer {
   background-color: var(--lightBackground);
@@ -78,13 +52,17 @@
   height: fit-content;
 }
 .imageCol {
-  padding: 8px;
-  width: var(--imageColWidth);
-  height: var(--imageColHeight);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .imageContainer {
   width: 100%;
   position: relative;
+}
+.projectImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .overlay {
   position: absolute;
@@ -111,6 +89,7 @@
   color: var(--lightBlue);
 }
 .skill {
+  font-weight: 200;
   margin-left: 8px;
   margin-right: 8px;
   color: var(--lightBackground);
