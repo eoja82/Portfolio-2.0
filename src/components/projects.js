@@ -44,7 +44,6 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-    window.addEventListener("resize", () => console.log(window.innerWidth))
   })
 
   // animate activeFilter color and filter projects
@@ -135,7 +134,6 @@ const Projects = () => {
     const cols = qProjects(".col")
     for (let i = 0; i < cols.length; i++) {
       if (cols[i].classList.contains("active")) {
-        console.log("imageColHeight", cols[i].clientHeight)
         imageColHeight = cols[i].clientHeight
       }
     }
