@@ -44,7 +44,7 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-    window.addEventListener("resize", () => console.log(window.innerWidth))
+    // window.addEventListener("resize", () => console.log(window.innerWidth))
   })
 
   // animate activeFilter color and filter projects
@@ -135,6 +135,7 @@ const Projects = () => {
     const cols = qProjects(".col")
     for (let i = 0; i < cols.length; i++) {
       if (cols[i].classList.contains("active")) {
+        console.log("imageColHeight", cols[i].clientHeight)
         imageColHeight = cols[i].clientHeight
       }
     }
@@ -159,6 +160,14 @@ const Projects = () => {
 
   return (
     <div>
+      <style type="text/css">
+        {`
+          .btn-outline-light:hover {
+            background-color: rgb(70, 236, 253);
+            border-color: rgb(70, 236, 253);
+          }
+        `}
+      </style>
       <Container fluid="true" ref={container}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
