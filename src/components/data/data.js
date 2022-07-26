@@ -9,7 +9,7 @@ const portfolio = [
   },
   {
     src: "./img/projects/lakesideDemo.png",
-    alt: "Gatsby / React Demo Website",
+    alt: "Lumber Yard",
     view: "https://eoja82.github.io/lakeside-demo/",
     code: "https://github.com/eoja82/lakeside-demo",
     about: "A demonstration Gatsby/React website.  By simply adding images and updating a JSON file, (1) a new product page will be created, (2) a link to the product page will be added to the navigation, (3) a link in the products pages sidebar navigation will be added, and (4) a card like link to the product page will be added to the home page.",
@@ -57,7 +57,7 @@ const portfolio = [
   },
   {
     src: "./img/projects/D3.png", 
-    alt: "Data Visualization With D3.js", 
+    alt: "Data Visualization", 
     view: "https://eoja82.github.io/fcc-Data-Visualization-Projects/",
     code: "https://github.com/eoja82/fcc-Data-Visualization-Projects",
     about: 'Five D3.js data visualization projects.',
