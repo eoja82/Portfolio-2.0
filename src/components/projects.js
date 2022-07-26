@@ -44,7 +44,7 @@ const Projects = () => {
     setProjectsContainerHeight()
     
     window.addEventListener("resize", resizing)
-    // window.addEventListener("resize", () => console.log(window.innerWidth))
+    window.addEventListener("resize", () => console.log(window.innerWidth))
   })
 
   // animate activeFilter color and filter projects
@@ -144,7 +144,7 @@ const Projects = () => {
   function setProjectColumns() {
     const width = window.innerWidth
 
-    if (width > 1199) {
+    if (width > 991) {
       projectColumns = 3
     } else if (width > 575) {
       projectColumns = 2
