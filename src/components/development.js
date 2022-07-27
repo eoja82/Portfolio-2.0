@@ -1,18 +1,15 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import * as styles from "./styles/development.module.css"
 import LargeHeading from "./lgHeading"
 import SubHeading from "./subHeading"
 import TechIcons from "./techIcons"
 import { backEnd, database, frontEnd, testing, versionControl } from "./data/data.js"
-//import Card from "react-bootstrap/Card"
-//import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
-//import Row from "react-bootstrap/Row"
 
 const Development = () => {
   return (
     <div>
-      <Container fluid="true">
+      <Container id="development" fluid="true">
         <div className={styles.titleContainer}>
           <LargeHeading title="Development" textAlign="right" />
           <SubHeading 

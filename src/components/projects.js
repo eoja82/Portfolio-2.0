@@ -166,7 +166,7 @@ const Projects = () => {
           }
         `}
       </style>
-      <Container fluid="true" ref={container}>
+      <Container fluid="true" id="projects" ref={container}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" textAlign="left" />
