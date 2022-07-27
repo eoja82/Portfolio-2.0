@@ -8,14 +8,27 @@
   overflow: hidden;
 }
 .heroBG {
-  background-position: 100% 0px;
+  /* background-position: 100% 0px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  object-fit: cover;
+  object-position: 100% 0px;
   height: 100%;
   width: 100%;
 }
 .titleContainer {
+  display: flex;
+  flex-direction: column;
   position: absolute;
+}
+.topBorder,
+.bottomBorder {
+  width: 278px;
+  height: 2px;
+  background-color: white;
+}
+.title {
+  padding: 20px 10px;
 }
 .heroTitle, .heroSubTitle {
   background-color: transparent;
@@ -23,14 +36,31 @@
   text-align: center;
   font-weight: lighter;
 }
-.heroTitle > span {
-  font-weight: bold;
+.heroTitle {
   font-size: 2.5rem;
-  color: rgb(70, 236, 253);
+  font-weight: 400;
 }
 .angle {
   position: absolute;
   bottom: 1rem;
   color: white;
   font-size: 2rem;
+}
+.navLinks {
+  position: absolute;
+  bottom: 100px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.navLink1,
+.navLink2,
+.navLink3 {
+  min-width: 120px;
+  text-align: center;
+}
+.navLink1 {
+  border-right: 1px solid white;
+}
+.navLink3 {
+  border-left: 1px solid white;
 }

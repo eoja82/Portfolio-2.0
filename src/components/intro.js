@@ -3,6 +3,8 @@ import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
 import { withPrefix } from "gatsby"
+import Container from "react-bootstrap/Container"
+import Nav from "react-bootstrap/Nav"
 
 if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
@@ -12,41 +14,22 @@ const Intro = () => {
   const heroBG = useRef(null),
         heroTitle = useRef(null),
         heroSubTitle = useRef(null),
-        angle = useRef(null)
+        angle = useRef(null),
+        topBorder = useRef(null),
+        bottomBorder = useRef(null),
+        nav = useRef(null)
   
   // on scroll animations
   useLayoutEffect(() => {
-    const offset = window.innerWidth / 2
     gsap.to(heroBG.current, {
-      backgroundPosition: `100% ${window.innerHeight / 2}px`,
+      /* backgroundPosition: `100% ${window.innerHeight / 2}px`, */
+      objectPosition: `100% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
         trigger: heroBG.current,
         start: "top top",
         end: "bottom top",
         scrub: .1
-      }
-    })
-    gsap.to(heroTitle.current, {
-      opacity: 0, 
-      x: offset, 
-      rotate: 90,
-      scrollTrigger: {
-        trigger: heroBG.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    })
-    gsap.to(heroSubTitle.current, {
-      opacity: 0, 
-      x: `-${offset}`, 
-      rotate: 90,
-      scrollTrigger: {
-        trigger: heroBG.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
       }
     })
     gsap.to(angle.current, {
@@ -62,20 +45,31 @@ const Intro = () => {
 
   // initial animations in
   useLayoutEffect(() => {
-    const offset = window.innerWidth / 2
-    gsap.from(heroTitle.current, {
-      opacity: 0, 
-      x: `-${offset}`, 
-      rotate: -90, 
-      duration: 1.25, 
+    gsap.from(topBorder.current, {
+      width: 0,
+      x: 278,
+      duration: .6,
       delay: .75
     })
+    gsap.from(bottomBorder.current, {
+      width: 0,
+      duration: .6,
+      delay: .75
+    })
+    gsap.from(heroTitle.current, {
+      opacity: 0,
+      duration: 1.25, 
+      delay: 1
+    })
     gsap.from(heroSubTitle.current, {
-      opacity: 0, 
-      x: offset, 
-      rotate: -90, 
+      opacity: 0,
       duration: 1.25, 
       delay: 2
+    })
+    gsap.from(nav.current, {
+      opacity: 0,
+      delay: 3.25,
+      duration: 1
     })
     gsap.from(angle.current, {
       opacity: 0,
@@ -88,14 +82,41 @@ const Intro = () => {
 
   return (
     <div>
-      <div className={styles.heroContainer}>
-        <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
+      <style>
+        {`
+          .nav-link {
+            color: white;
+          }
+          .nav-link:focus, .nav-link:hover {
+            color: white;
+            background-color: rgb(255, 255, 255, .2);
+          }
+        `}
+      </style>
+      <Container fluid="true" className={styles.heroContainer}>
+        {/* <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div> */}
+        <img className={styles.heroBG} ref={heroBG} src="/img/heroSky.webp" alt="Sky Background"></img>
         <div className={styles.titleContainer}>
-          <h1 className={styles.heroTitle} ref={heroTitle}>Hello, my name is <span>Erik Oja</span>.</h1>
-          <h2 className={styles.heroSubTitle} ref={heroSubTitle}>I'm a full stack web developer.</h2>
+          <div className={styles.topBorder} ref={topBorder}></div>
+          <div className={styles.title}>
+            <h1 className={styles.heroTitle} ref={heroTitle}>Erik Oja</h1>
+            <h2 className={styles.heroSubTitle} ref={heroSubTitle}>Software Developer</h2>
+          </div>
+          <div className={styles.bottomBorder} ref={bottomBorder}></div>
         </div>
+        <Nav ref={nav} className={styles.navLinks + " justify-content-center"}>
+          <Nav.Item>
+            <Nav.Link href="#projects" className={styles.navLink1}>Projects</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#development" className={styles.navLink2}>Tech Stack</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#contact" className={styles.navLink3}>Contact</Nav.Link>
+          </Nav.Item>
+        </Nav>
         <i className={styles.angle + " fa fa-angle-down"} ref={angle} style={{fontSize: "2rem"}}></i>
-      </div>
+      </Container>
     </div>
   )
 }
