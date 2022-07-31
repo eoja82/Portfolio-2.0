@@ -1,4 +1,34 @@
 .componentContainer {
-  background-color: var(--lightBackground);
+  position: relative;
   min-height: 100vh;
+}
+.bgImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+.contactContainer {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  color: white;
+  font-weight: 400;
+}
+.header, .form {
+  width: 700px;
+}
+.form {
+  margin-top: 1rem;
+}
+.floatingLabel {
+  color: white;
+  background-color: transparent;
 }
