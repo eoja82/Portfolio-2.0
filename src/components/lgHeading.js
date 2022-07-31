@@ -12,7 +12,7 @@ const LargeHeading = (props) => {
 }
 
 LargeHeading.prototypes = {
-  textAlign: PropTypes.string.isRequired,
+  textAlign: PropTypes.oneOf(["left", "right"]).isRequired,
   title: PropTypes.string.isRequired
 }
 
