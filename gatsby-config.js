@@ -4,6 +4,10 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+ require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
  module.exports = {
   pathPrefix: "/Portfolio-2.0",
   plugins: [
