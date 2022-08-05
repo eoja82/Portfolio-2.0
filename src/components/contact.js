@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react"
+import React, { useEffect, useLayoutEffect, useRef,useState } from "react"
 import { withPrefix } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
@@ -6,8 +6,6 @@ import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
-import LargeHeading from "./lgHeading"
-import SubHeading from "./subHeading"
 import * as styles from "./styles/contact.module.css"
 
 
@@ -16,7 +14,12 @@ if (typeof window !== undefined) {
 }
 
 const Contact = () => {
-  const bgImage = useRef(null)
+  const bgImage = useRef(null),
+        contactForm = useRef(null),
+        [email, setEmail] = useState(""),
+        [name, setName] = useState(""),
+        [subject, setSubject] = useState(""),
+        [message, setMessage] = useState("")
 
   useLayoutEffect(() => {
     bgImage.current.style.objectPosition = `50% ${-window.innerHeight / 2}px`
@@ -32,6 +35,41 @@ const Contact = () => {
       }
     })
   })
+
+  function handleEmail(e) {
+    setEmail(e.target.value)
+  }
+
+  function handleName(e) {
+    setName(e.target.value)
+  }
+
+  function handleSubject(e) {
+    setSubject(e.target.value)
+  }
+
+  function handleMessage(e) {
+    setMessage(e.target.value)
+  }
+ 
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch(`${process.env.API_URL}/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({email: email, name: name, subject: subject, message: message})
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      alert(res.message)
+      if (res.success) contactForm.current.reset()
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
 
   return (
     <Container fluid="true" id="contact" className={styles.componentContainer}>
@@ -52,17 +90,20 @@ const Contact = () => {
       <img className={styles.bgImage} ref={bgImage} src="/img/heroSky.webp" alt="Sky Background"></img>
       <Container className={styles.contactContainer}>
         <h1 className={styles.header}>Contact</h1>
-        <Form className={styles.form}>
+        <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
           <FloatingLabel controlId="floatingEmail" label="Email Address" className={styles.floatingLabel  +" mb-3"}>
-            <Form.Control type="email" placeholder="name@example.com" required="true" />
+            <Form.Control type="email" onChange={handleEmail} placeholder="name@example.com" required={true} />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingName" label="Name" className={styles.floatingLabel  +" mb-3"}>
+            <Form.Control type="text" onChange={handleName} placeholder="Your Name" required={true} />
           </FloatingLabel>
           <FloatingLabel controlId="floatingSubject" label="Subject" className={styles.floatingLabel + " mb-3"}>
-            <Form.Control type="text" placeholder="Subject" required="true" />
+            <Form.Control type="text" onChange={handleSubject} placeholder="Subject" required={true} />
           </FloatingLabel>
           <FloatingLabel conrtrolId="floatingMessage" label="Message" className={styles.floatingLabel  +" mb-3"}>
-            <Form.Control as="textarea" placeholder="Message" style={{height: "100px"}} required="true" />
+            <Form.Control as="textarea" onChange={handleMessage} placeholder="Message" style={{height: "100px"}} required={true} />
           </FloatingLabel>
-          <Button variant="outline-light">Send Message</Button>
+          <Button variant="outline-light" type="submit">Send Message</Button>
         </Form>
       </Container>
     </Container>
