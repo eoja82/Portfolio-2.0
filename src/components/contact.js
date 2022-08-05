@@ -87,7 +87,7 @@ const Contact = () => {
           }
         `}
       </style>
-      <img className={styles.bgImage} ref={bgImage} src="/img/heroSky.webp" alt="Sky Background"></img>
+      <img className={styles.bgImage} ref={bgImage} src={withPrefix("/img/heroSky.webp")} alt="Sky Background"></img>
       <Container className={styles.contactContainer}>
         <h1 className={styles.header}>Contact</h1>
         <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
