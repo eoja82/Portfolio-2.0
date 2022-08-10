@@ -160,9 +160,13 @@ const Projects = () => {
     <div>
       <style type="text/css">
         {`
-          .btn-outline-light:hover {
-            background-color: rgb(70, 236, 253);
+          .linkButton {
             border-color: rgb(70, 236, 253);
+            color: rgb(70, 236, 253);
+          }
+          .linkButton:hover {
+            border-color: rgb(70, 236, 253);
+            background-color: rgb(70, 236, 253);
           }
         `}
       </style>
@@ -204,8 +208,8 @@ const Projects = () => {
                           })}
                         </div>
                         <div>
-                          <Button variant="outline-light" href={x.view} target="_blank" className={styles.linkButton}>VIEW</Button>
-                          <Button variant="outline-light" href={x.code} target="_blank" className={styles.linkButton}>CODE</Button>
+                          <Button variant="outline-*" href={x.view} target="_blank" className={styles.linkButton + " linkButton"}>VIEW</Button>
+                          <Button variant="outline-*" href={x.code} target="_blank" className={styles.linkButton + " linkButton"}>CODE</Button>
                         </div>
                       </div>
                     </div>
