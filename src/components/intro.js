@@ -22,8 +22,7 @@ const Intro = () => {
   // on scroll animations
   useLayoutEffect(() => {
     gsap.to(heroBG.current, {
-      /* backgroundPosition: `100% ${window.innerHeight / 2}px`, */
-      objectPosition: `100% ${window.innerHeight / 2}px`,
+      backgroundPosition: `100% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
         trigger: heroBG.current,
@@ -94,8 +93,7 @@ const Intro = () => {
         `}
       </style>
       <Container fluid="true" className={styles.heroContainer}>
-        {/* <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div> */}
-        <img className={styles.heroBG} ref={heroBG} src="/img/heroSky.webp" alt="Sky Background"></img>
+        <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
         <div className={styles.titleContainer}>
           <div className={styles.topBorder} ref={topBorder}></div>
           <div className={styles.title}>

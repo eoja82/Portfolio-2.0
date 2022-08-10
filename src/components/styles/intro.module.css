@@ -8,11 +8,9 @@
   overflow: hidden;
 }
 .heroBG {
-  /* background-position: 100% 0px;
+  background-position: 100% 0px;
   background-repeat: no-repeat;
-  background-size: cover; */
-  object-fit: cover;
-  object-position: 100% 0px;
+  background-size: cover;
   height: 100%;
   width: 100%;
 }
