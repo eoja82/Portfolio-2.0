@@ -1,3 +1,11 @@
+.header, .form {
+  --headerAndFormWidth: 700px;
+}
+@media screen and (max-width: 768px) {
+  .header, .form {
+    --headerAndFormWidth: 95%;
+  }
+}
 .componentContainer {
   position: relative;
   min-height: 100vh;
@@ -23,7 +31,7 @@
   font-weight: 400;
 }
 .header, .form {
-  width: 700px;
+  width: var(--headerAndFormWidth);
 }
 .form {
   margin-top: 1rem;
