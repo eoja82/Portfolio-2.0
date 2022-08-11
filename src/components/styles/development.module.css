@@ -1,5 +1,8 @@
-.titleContainer {
+.developmentContainer {
+  padding-top: 55px;
   background-color: var(--lightBackground);
+}
+.titleContainer {
   display: flex;
   flex-direction: column;
 }

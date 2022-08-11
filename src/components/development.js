@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container"
 const Development = () => {
   return (
     <div>
-      <Container id="development" fluid="true">
+      <Container id="development" className={styles.developmentContainer} fluid="true">
         <div className={styles.titleContainer}>
           <LargeHeading title="Development" textAlign="right" />
           <SubHeading 
