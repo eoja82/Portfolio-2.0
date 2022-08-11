@@ -14,8 +14,6 @@ export default function Home() {
       <Projects />
       <Development />
       <Contact />
-      {/* About section, color icons for front end
-          back end, database, mobile?, testing and other */}
     </Layout>
   )
 }
