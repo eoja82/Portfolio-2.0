@@ -41,6 +41,7 @@
 }
 .projectsContainer {
   background-color: var(--lightBackground);
+  padding-top: 55px;
 }
 .filterContainer {
   display: flex;
