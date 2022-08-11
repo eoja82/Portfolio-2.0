@@ -6,8 +6,6 @@ import Projects from "../components/projects"
 import Development from "../components/development"
 
 export default function Home() {
-  
-  
   return (
     <Layout>
       <Intro />
