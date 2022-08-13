@@ -17,8 +17,10 @@
   color: white;
   text-decoration: none;
 }
+.topNav a:hover {
+  color: white;
+}
 .menu {
-  font-size: 1.5rem;
   color: white;
   padding: 8px 32px;
 }
