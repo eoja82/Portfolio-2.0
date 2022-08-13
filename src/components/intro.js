@@ -21,14 +21,12 @@ const Intro = () => {
         topBorder = useRef(null),
         bottomBorder = useRef(null),
         nav = useRef(null),
-        menu = useRef(null),
         [showOffcanvas, setShowOffcanvas] = useState(false)
         
   function offcanvasClose() { setShowOffcanvas(false) }
         
   function offcanvasShow() {
     setShowOffcanvas(true)
-    /* menu.current.blur() */
   } 
         
   
@@ -96,6 +94,9 @@ const Intro = () => {
     <div>
       <style>
         {`
+          .fa-bars {
+            font-size: 1.5rem;
+          }
           .nav-link {
             color: white;
           }
@@ -108,7 +109,7 @@ const Intro = () => {
       <Container fluid="true" className={styles.heroContainer}>
         <Navbar className={styles.topNav} fixed="top" >
           <Container fluid="true">
-            <i className={styles.menu + " fa fa-bars"} onClick={offcanvasShow} role="button"></i>
+            <i className={styles.menu + " fa fa-bars"} onClick={offcanvasShow} role="button" aria-label="menu button"></i>
             <Link to="#">Erik Oja</Link>
           </Container>
         </Navbar>
