@@ -19,8 +19,7 @@ const SubHeading = (props) => {
       scrollTrigger: {
         trigger: titleScroller.current,
         start: "top bottom",
-        scrub: true,
-        markers: true
+        scrub: true
       }
     })
   })
