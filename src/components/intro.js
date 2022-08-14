@@ -2,12 +2,10 @@ import React, { useLayoutEffect, useRef, useState } from "react"
 import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
-import { Link, withPrefix } from "gatsby"
+import { withPrefix } from "gatsby"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
-import Navbar from "react-bootstrap/Navbar"
-import Offcanvas from "react-bootstrap/Offcanvas"
 
 if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
@@ -20,15 +18,7 @@ const Intro = () => {
         angle = useRef(null),
         topBorder = useRef(null),
         bottomBorder = useRef(null),
-        nav = useRef(null),
-        [showOffcanvas, setShowOffcanvas] = useState(false)
-        
-  function offcanvasClose() { setShowOffcanvas(false) }
-        
-  function offcanvasShow() {
-    setShowOffcanvas(true)
-  } 
-        
+        nav = useRef(null)
   
   // on scroll animations
   useLayoutEffect(() => {
@@ -92,43 +82,7 @@ const Intro = () => {
 
   return (
     <div>
-      <style>
-        {`
-          .fa-bars {
-            font-size: 1.5rem;
-          }
-          .nav-link {
-            color: white;
-          }
-          .nav-link:focus, .nav-link:hover {
-            color: white;
-            background-color: rgb(255, 255, 255, .2);
-          }
-        `}
-      </style>
       <Container fluid="true" className={styles.heroContainer}>
-        <Navbar className={styles.topNav} fixed="top" >
-          <Container fluid="true">
-            <i className={styles.menu + " fa fa-bars"} onClick={offcanvasShow} role="button" aria-label="menu button"></i>
-            <Link to="#">Erik Oja</Link>
-          </Container>
-        </Navbar>
-        <Offcanvas show={showOffcanvas} onHide={offcanvasClose}>
-          <Offcanvas.Header closeButton />
-          <Offcanvas.Body>
-            <ul className={styles.menuList}>
-              <li className="mb-3">
-                <Link to="#projects" onClick={offcanvasClose}>Projects</Link>
-              </li>
-              <li className="mb-3">
-                <Link to="#development" onClick={offcanvasClose}>Tech Stack</Link>
-              </li>
-              <li className="mb-3">
-                <Link to="#contact" onClick={offcanvasClose}>Contact</Link>
-              </li>
-            </ul>
-          </Offcanvas.Body>
-        </Offcanvas>
         <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
         <div className={styles.titleContainer}>
           <div className={styles.topBorder} ref={topBorder}></div>
