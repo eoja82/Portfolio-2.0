@@ -43,7 +43,7 @@ function Topnav() {
               <Link to="#projects" onClick={offcanvasClose}>Projects</Link>
             </li>
             <li className="mb-3">
-              <Link to="#development" onClick={offcanvasClose}>Tech Stack</Link>
+              <Link to="#development" onClick={offcanvasClose}>Development</Link>
             </li>
             <li className="mb-3">
               <Link to="#contact" onClick={offcanvasClose}>Contact</Link>
