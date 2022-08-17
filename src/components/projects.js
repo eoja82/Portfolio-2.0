@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { forwardRef, useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { Flip, gsap, ScrollTrigger } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
@@ -31,20 +31,69 @@ const Projects = () => {
       activeProjects = portfolio.length
 
   useEffect(() => {
-    // make sure scrollTriggers are in correct place after images load
-    ScrollTrigger.refresh(true)
-
     // add click event to filters
     qFilter(".col").forEach( filter => {
       filter.addEventListener("click", filterProjects)
     })
 
+    window.addEventListener("resize", resizing)
+
     setImageColHeight()
     setProjectColumns()
     setProjectsContainerHeight()
-    
-    window.addEventListener("resize", resizing)
-  })
+
+    // make sure scrollTriggers are in correct place after images load
+    ScrollTrigger.refresh(true)
+
+    // reset projectColumns when done resizing
+    function resizing() {
+      clearTimeout(resizeId)
+      resizeId = setTimeout(doneResizing, 500)
+    }
+
+    function doneResizing() {
+      setImageColHeight()
+      setProjectColumns()
+      setProjectsContainerHeight()  
+    }
+
+    function setImageColHeight() {
+      console.log("window inner width", window.innerWidth)
+      const width = window.innerWidth
+      if (width > 1399) {
+        imageColHeight = 321.433
+      } else if (width > 1199) {
+        imageColHeight = 278.533
+      } else if (width > 991) {
+        imageColHeight = 235.633
+      } else if (width > 767) {
+        imageColHeight = 264.233
+      } else if (width > 575) {
+        imageColHeight = 392.933
+      } else {
+        imageColHeight = width / 1.398601399
+      }
+    }
+
+    function setProjectColumns() {
+      const width = window.innerWidth
+
+      if (width > 991) {
+        projectColumns = 3
+      } else if (width > 575) {
+        projectColumns = 2
+      } else {
+        projectColumns = 1
+      }
+      console.log("projectColumns", projectColumns)
+    }
+
+    function setProjectsContainerHeight() {
+      projectsContainerHeight = Math.ceil(activeProjects / projectColumns) * imageColHeight
+      projects.current.style.height = `${projectsContainerHeight + 72}px`
+      console.log("setting project container height to " + `${projectsContainerHeight + 72}px`)
+    }
+  }, [])
 
   // animate activeFilter color and filter projects
   function filterProjects(e) {
@@ -74,14 +123,17 @@ const Projects = () => {
     // filter / animate projects in and out
     projectTargets.forEach( (project, i) => {
       if (portfolio[i].skills.includes(clicked) || clicked === "All") {
-        if (!project.classList.contains("active")) activeProjects++
+        if (!project.classList.contains("active"))
+        activeProjects++
         project.style.display = "block"
         project.classList.add("active")
       } else {
-        if (project.classList.contains("active")) activeProjects--
+        if (project.classList.contains("active"))
+        activeProjects--
         project.style.display = "none"
         project.classList.remove("active")
       }
+      console.log("activeProjects", activeProjects)
     })
 
     Flip.from(projectsState, {
@@ -116,44 +168,6 @@ const Projects = () => {
       ease: "power1.inOut",
       onComplete: () => ScrollTrigger.refresh(true)
     })
-  }
-  
-  // reset projectColumns when done resizing
-  function resizing() {
-    clearTimeout(resizeId)
-    resizeId = setTimeout(doneResizing, 500)
-  }
-
-  function doneResizing() {
-    setImageColHeight()
-    setProjectColumns()
-    setProjectsContainerHeight()  
-  }
-
-  function setImageColHeight() {
-    const cols = qProjects(".col")
-    for (let i = 0; i < cols.length; i++) {
-      if (cols[i].classList.contains("active")) {
-        imageColHeight = cols[i].clientHeight
-      }
-    }
-  }
-
-  function setProjectColumns() {
-    const width = window.innerWidth
-
-    if (width > 991) {
-      projectColumns = 3
-    } else if (width > 575) {
-      projectColumns = 2
-    } else {
-      projectColumns = 1
-    }
-  }
-
-  function setProjectsContainerHeight() {
-    projectsContainerHeight = Math.ceil(activeProjects / projectColumns) * imageColHeight
-    projects.current.style.height = `${projectsContainerHeight + 72}px`
   }
 
   return (
