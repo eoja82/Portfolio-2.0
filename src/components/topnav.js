@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { forwardRef, useState } from "react"
 import { Link } from "gatsby"
 import Container from "react-bootstrap/Container"
 import Navbar from "react-bootstrap/Navbar"
@@ -6,12 +6,12 @@ import Offcanvas from "react-bootstrap/Offcanvas"
 import * as styles from "./styles/topnav.module.css"
 
 
-function Topnav() {
+const Topnav = forwardRef((props, topnav) => {
   const [showOffcanvas, setShowOffcanvas] = useState(false)
 
   function offcanvasClose() { setShowOffcanvas(false) }
         
-  function offcanvasShow() { setShowOffcanvas(true) } 
+  function offcanvasShow() { setShowOffcanvas(true) }
 
   return (
     <div>
@@ -20,19 +20,21 @@ function Topnav() {
           .fa-bars {
             font-size: 1.5rem;
           }
+          /* 
+          *********** move this to intro ***********
           .nav-link {
             color: white;
           }
           .nav-link:focus, .nav-link:hover {
             color: white;
             background-color: rgb(255, 255, 255, .2);
-          }
+          } */
         `}
       </style>
-      <Navbar className={styles.topNav} fixed="top" >
+      <Navbar ref={topnav} className={styles.topNav} fixed="top" >
         <Container fluid="true">
           <i className={styles.menu + " fa fa-bars"} onClick={offcanvasShow} role="button" aria-label="menu button"></i>
-          <Link to="#">Erik Oja</Link>
+          <Link to="#">Er<span>i</span>k Oja</Link>
         </Container>
       </Navbar>
       <Offcanvas show={showOffcanvas} onHide={offcanvasClose}>
@@ -53,6 +55,6 @@ function Topnav() {
       </Offcanvas>
     </div>
   )
-}
+})
 
 export default Topnav
