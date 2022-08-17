@@ -14,9 +14,8 @@ if (typeof window !== undefined) {
   gsap.registerPlugin(Flip, ScrollTrigger)
 }
 
-const Projects = () => {
-  const container = useRef(null),
-        projects = useRef(null),
+const Projects = forwardRef((props, contact) => {
+  const projects = useRef(null),
         project = useRef(null),
         qProjects = gsap.utils.selector(projects),
         filter = useRef(null),
@@ -184,7 +183,7 @@ const Projects = () => {
           }
         `}
       </style>
-      <Container fluid="true" id="projects" ref={container}>
+      <Container fluid="true" id="projects" ref={contact}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" textAlign="left" />
@@ -236,6 +235,6 @@ const Projects = () => {
       </Container>
     </div>
   )
-}
+})
 
 export default Projects
