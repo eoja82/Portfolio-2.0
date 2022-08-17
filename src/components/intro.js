@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
+import React, { forwardRef, useLayoutEffect, useRef } from "react"
 import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
@@ -10,7 +10,7 @@ if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const Intro = () => {
+const Intro = forwardRef((props, intro) => {
   const heroBG = useRef(null),
         heroTitle = useRef(null),
         heroSubTitle = useRef(null),
@@ -81,7 +81,7 @@ const Intro = () => {
 
   return (
     <div>
-      <Container fluid="true" className={styles.heroContainer}>
+      <Container ref={intro} fluid="true" className={styles.heroContainer}>
         <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
         <div className={styles.titleContainer}>
           <div className={styles.topBorder} ref={topBorder}></div>
@@ -106,6 +106,6 @@ const Intro = () => {
       </Container>
     </div>
   )
-}
+})
 
 export default Intro
