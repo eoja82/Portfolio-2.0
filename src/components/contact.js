@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef,useState } from "react"
+import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from "react"
 import { withPrefix } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
@@ -13,7 +13,7 @@ if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const Contact = () => {
+const Contact = forwardRef((props, contact) => {
   const bgImage = useRef(null),
         contactForm = useRef(null),
         [email, setEmail] = useState(""),
@@ -72,7 +72,7 @@ const Contact = () => {
   }
 
   return (
-    <Container fluid="true" id="contact" className={styles.componentContainer}>
+    <Container ref={contact} fluid="true" id="contact" className={styles.componentContainer}>
       <style>
         {`
           .form-control,
@@ -108,6 +108,6 @@ const Contact = () => {
       </Container>
     </Container>
   )
-}
+})
 
 export default Contact
