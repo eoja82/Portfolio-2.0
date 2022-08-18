@@ -36,7 +36,8 @@ const SubHeading = (props) => {
         className={styles.line} 
         style={{
           marginLeft: props.marginLeft, 
-          marginRight: props.marginRight
+          marginRight: props.marginRight,
+          backgroundColor: props.color
         }}></div>
       <h3 className={styles.title} ref={title}>{props.text}</h3>
     </div>
@@ -48,7 +49,8 @@ SubHeading.propTypes = {
   justifyContent: PropTypes.oneOf(["start", "end"]).isRequired,
   flexDirection: PropTypes.oneOf(["row", "row-reverse"]).isRequired,
   marginLeft: PropTypes.string,
-  marginRight: PropTypes.string
+  marginRight: PropTypes.string,
+  color: PropTypes.string.isRequired
 }
 
 export default SubHeading
