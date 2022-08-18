@@ -191,7 +191,8 @@ const Projects = forwardRef((props, contact) => {
               text="Projects" 
               justifyContent="start" 
               flexDirection="row"
-              marginRight="2rem" 
+              marginRight="2rem"
+              color="rgb(70, 236, 253)"
             />
           </div>
           <Container className={styles.projectsAndFilters}>
