@@ -16,7 +16,8 @@ const Development = () => {
             text="Front End" 
             justifyContent="end" 
             flexDirection="row-reverse"
-            marginLeft="2rem" 
+            marginLeft="2rem"
+            color="#744c9e"
           />
         </div>
         <TechIcons data={frontEnd} />
@@ -26,6 +27,7 @@ const Development = () => {
             justifyContent="start"
             flexDirection="row"
             marginRight="2rem"
+            color="#549e44"
           />
         </div>
         <TechIcons data={backEnd} />
@@ -35,6 +37,7 @@ const Development = () => {
             justifyContent="end"
             flexDirection="row-reverse"
             marginLeft="2rem"
+            color="#ffd54f"
           />
         </div>
         <TechIcons data={database} />
@@ -44,6 +47,7 @@ const Development = () => {
             justifyContent="start"
             flexDirection="row"
             marginRight="2rem"
+            color="#8d6748"
           />
         </div>
         <TechIcons data={testing} />
@@ -53,6 +57,7 @@ const Development = () => {
             justifyContent="end"
             flexDirection="row-reverse"
             marginLeft="2rem"
+            color="#de4c36"
           />
         </div>
         <TechIcons data={versionControl} />
