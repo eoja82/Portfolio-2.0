@@ -15,7 +15,7 @@ const Topnav = forwardRef((props, topnav) => {
 
   return (
     <div>
-      <style>
+      <style type="text/css">
         {`
           .fa-bars {
             font-size: 1.5rem;
