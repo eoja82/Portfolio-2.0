@@ -81,6 +81,18 @@ const Intro = forwardRef((props, intro) => {
 
   return (
     <div>
+      <style>
+        {`
+          .navLink {
+            color: white;
+          }
+          .navLink:hover,
+          .navLink:focus {
+            color: #221f1f;
+            background-color: white;
+          }
+        `}
+      </style>
       <Container ref={intro} fluid="true" className={styles.heroContainer}>
         <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
         <div className={styles.titleContainer}>
@@ -93,13 +105,13 @@ const Intro = forwardRef((props, intro) => {
         </div>
         <Nav ref={nav} className={styles.navLinks + " justify-content-center"}>
           <Nav.Item>
-            <Nav.Link href="#projects" className={styles.navLink1}>Projects</Nav.Link>
+            <Nav.Link href="#projects" className={styles.navLink1 + " navLink"}>Projects</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#development" className={styles.navLink2}>Tech Stack</Nav.Link>
+            <Nav.Link href="#development" className={styles.navLink2 + " navLink"}>Development</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#contact" className={styles.navLink3}>Contact</Nav.Link>
+            <Nav.Link href="#contact" className={styles.navLink3 + " navLink"}>Contact</Nav.Link>
           </Nav.Item>
         </Nav>
         <i className={styles.angle + " fa fa-angle-down"} ref={angle} style={{fontSize: "2rem"}}></i>
