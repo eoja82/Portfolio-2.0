@@ -73,7 +73,7 @@ const Contact = forwardRef((props, contact) => {
 
   return (
     <Container ref={contact} fluid="true" id="contact" className={styles.componentContainer}>
-      <style>
+      <style type="text/css">
         {`
           .form-control,
           .form-control:focus {
