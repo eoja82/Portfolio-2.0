@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import * as styles from "./styles/development.module.css"
 import LargeHeading from "./lgHeading"
 import SubHeading from "./subHeading"
@@ -6,10 +6,10 @@ import TechIcons from "./techIcons"
 import { backEnd, database, frontEnd, testing, versionControl } from "./data/data.js"
 import Container from "react-bootstrap/Container"
 
-const Development = () => {
+const Development = forwardRef((props, development) => {
   return (
     <div>
-      <Container id="development" className={styles.developmentContainer} fluid="true">
+      <Container id="development" ref={development} className={styles.developmentContainer} fluid="true">
         <div className={styles.titleContainer}>
           <LargeHeading title="Development" textAlign="right" />
           <SubHeading 
@@ -64,6 +64,6 @@ const Development = () => {
       </Container>
     </div>
   )
-}
+})
 
 export default Development
