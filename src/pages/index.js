@@ -25,28 +25,51 @@ export default function Home() {
           container = nav.firstElementChild,
           menu = container.firstElementChild,
           home = container.lastElementChild,
-          targets = [nav, container, menu, home]
+          accent = home.firstElementChild
+
+    console.log(accent)
 
     ScrollTrigger.create({
       trigger: intro.current,
       start: "top top",
-      onEnter: () => darkNav(),
-      onEnterBack: () => darkNav(),
-      onLeaveBack: () => transparentNav()
+      onEnter: () => {
+        darkNav()
+        accentColor("red")
+      },
+      onEnterBack: () => {
+        darkNav()
+        accentColor("red")
+      },
+      onLeaveBack: () => {
+        transparentNav()
+        accentColor("white")
+      }
     })
 
     ScrollTrigger.create({
       trigger: projects.current,
       start: "top top",
-      onEnter: () => lightNav(),
-      onEnterBack: () => lightNav()
+      onEnter: () => {
+        lightNav()
+        accentColor("rgb(70, 236, 253)")
+      },
+      onEnterBack: () => {
+        lightNav()
+        accentColor("rgb(70, 236, 253)")
+      }
     })
 
     ScrollTrigger.create({
       trigger: contact.current,
       start: "top-=5px top",
-      onEnter: () => transparentNav(),
-      onLeaveBack: () => lightNav()
+      onEnter: () => {
+        darkNav()
+        accentColor("red")
+      },
+      onLeaveBack: () => {
+        lightNav()
+        accentColor("rgb(70, 236, 253)")
+      }
     })
 
     function transparentNav() {
@@ -75,6 +98,12 @@ export default function Home() {
       })
       gsap.to([menu, home], {
         color: "rgb(25, 25, 25)"
+      })
+    }
+
+    function accentColor(color) {
+      gsap.to(accent, {
+        color: color
       })
     }
 
