@@ -89,7 +89,7 @@ const frontEnd = [
   {title: "HTML", src: "./icons/html.png", borderColor: "#ff5722"},
   {title: "CSS", src: "./icons/css.png", borderColor: "#2196f3"},
   {title: "JavaScript", src: "./icons/javascript.png", borderColor: "#ffdf00"},
-  {title: "React", src: "./icons/react.png", borderColor: "#00d8ff"},
+  {title: "React", src: "./icons/react.svg", borderColor: "#00d8ff"},
   {title: "Gatsby", src: "./icons/gatsby.png", borderColor: "#744c9e"},
   {title: "Bootstrap", src: "./icons/bootstrap2.png", borderColor: "#553b7d"},
   {title: "GSAP", src: "./icons/gsap.jpg", borderColor: "#93d300"},
