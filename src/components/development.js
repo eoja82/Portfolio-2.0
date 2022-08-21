@@ -10,57 +10,67 @@ const Development = forwardRef((props, development) => {
   return (
     <div>
       <Container id="development" ref={development} className={styles.developmentContainer} fluid="true">
-        <div className={styles.titleContainer}>
-          <LargeHeading title="Development" textAlign="right" />
-          <SubHeading 
-            text="Front End" 
-            justifyContent="end" 
-            flexDirection="row-reverse"
-            marginLeft="2rem"
-            color="#744c9e"
-          />
+        <LargeHeading title="Development" textAlign="right" />
+        <div id="frontEnd">
+          <div className={styles.titleContainer}>
+            <SubHeading 
+              text="Front End" 
+              justifyContent="end" 
+              flexDirection="row-reverse"
+              marginLeft="2rem"
+              color="#ff5722"
+            />
+          </div>
+          <TechIcons data={frontEnd} />
         </div>
-        <TechIcons data={frontEnd} />
-        <div className={styles.titleContainer}>
-          <SubHeading 
-            text="Back End"
-            justifyContent="start"
-            flexDirection="row"
-            marginRight="2rem"
-            color="#549e44"
-          />
+        <div id="backEnd">
+          <div className={styles.titleContainer}>
+            <SubHeading 
+              text="Back End"
+              justifyContent="start"
+              flexDirection="row"
+              marginRight="2rem"
+              color="#549e44"
+            />
+          </div>
+          <TechIcons data={backEnd} />
         </div>
-        <TechIcons data={backEnd} />
-        <div className={styles.titleContainer}>
-          <SubHeading 
-            text="Database"
-            justifyContent="end"
-            flexDirection="row-reverse"
-            marginLeft="2rem"
-            color="#ffd54f"
-          />
+        <div id="database">
+          <div className={styles.titleContainer}>
+            <SubHeading 
+              text="Database"
+              justifyContent="end"
+              flexDirection="row-reverse"
+              marginLeft="2rem"
+              color="#ffd54f"
+            />
+          </div>
+          <TechIcons data={database} />
         </div>
-        <TechIcons data={database} />
-        <div className={styles.titleContainer}>
-          <SubHeading 
-            text="Testing"
-            justifyContent="start"
-            flexDirection="row"
-            marginRight="2rem"
-            color="#8d6748"
-          />
+        <div id="testing">
+          <div className={styles.titleContainer}>
+            <SubHeading 
+              text="Testing"
+              justifyContent="start"
+              flexDirection="row"
+              marginRight="2rem"
+              color="#8d6748"
+            />
+          </div>
+          <TechIcons data={testing} />
         </div>
-        <TechIcons data={testing} />
-        <div className={styles.titleContainer}>
-          <SubHeading 
-            text="Version Control"
-            justifyContent="end"
-            flexDirection="row-reverse"
-            marginLeft="2rem"
-            color="#de4c36"
-          />
+        <div id="versionControl">
+          <div className={styles.titleContainer}>
+            <SubHeading 
+              text="Version Control"
+              justifyContent="end"
+              flexDirection="row-reverse"
+              marginLeft="2rem"
+              color="#de4c36"
+            />
+          </div>
+          <TechIcons data={versionControl} />
         </div>
-        <TechIcons data={versionControl} />
       </Container>
     </div>
   )
