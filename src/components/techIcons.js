@@ -12,7 +12,7 @@ const TechIcons = (props) => {
     <Container className={styles.container}>
       <Row className={styles.row + " g-4"}>
         {props.data.map( x => (
-          <Col xs={4} sm={3} md={3} lg={2} xl={2} xxl={2} className={styles.col} key={x.title}>
+          <Col xs={4} sm={3} md={3} lg={2} xl={2} xxl={2} key={x.title}>
             <Card style={{
               borderBottom: `5px solid ${x.borderColor}`,
               borderTop: "none",
