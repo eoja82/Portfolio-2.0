@@ -105,6 +105,14 @@ const Contact = forwardRef((props, contact) => {
           </FloatingLabel>
           <Button variant="outline-light" type="submit">Send Message</Button>
         </Form>
+        <Container fluid="true" className={styles.social}>
+          <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><i className="fa fa-linkedin"></i></a>
+          <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><i className="fa fa-github"></i></a>
+          <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><i className="fa fa-stack-overflow"></i></a>
+        </Container>
+      </Container>
+      <Container as="footer" className={styles.footer}>
+        <p class="copywrite">&copy; 2022 Erik Oja.  All rights reserved.</p>
       </Container>
     </Container>
   )
