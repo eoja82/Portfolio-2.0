@@ -11,8 +11,7 @@ if (typeof window !== undefined) {
 }
 
 const Intro = forwardRef((props, intro) => {
-  const heroBG = useRef(null),
-        heroTitle = useRef(null),
+  const heroTitle = useRef(null),
         heroSubTitle = useRef(null),
         angle = useRef(null),
         topBorder = useRef(null),
@@ -21,11 +20,11 @@ const Intro = forwardRef((props, intro) => {
   
   // on scroll animations
   useLayoutEffect(() => {
-    gsap.to(heroBG.current, {
+    gsap.to(intro.current, {
       backgroundPosition: `100% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
-        trigger: heroBG.current,
+        trigger: intro.current,
         start: "top top",
         end: "bottom top",
         scrub: .1
@@ -34,7 +33,7 @@ const Intro = forwardRef((props, intro) => {
     gsap.to(angle.current, {
       opacity: 0,
       scrollTrigger: {
-        trigger: heroBG.current,
+        trigger: intro.current,
         start: "top top",
         end: "bottom top",
         scrub: true
@@ -93,8 +92,7 @@ const Intro = forwardRef((props, intro) => {
           }
         `}
       </style>
-      <Container ref={intro} fluid="true" className={styles.heroContainer}>
-        <div className={styles.heroBG} ref={heroBG} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}></div>
+      <Container ref={intro} fluid="true" className={styles.heroContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
         <div className={styles.titleContainer}>
           <div className={styles.topBorder} ref={topBorder}></div>
           <div className={styles.title}>

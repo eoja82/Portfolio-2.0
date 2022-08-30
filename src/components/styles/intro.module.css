@@ -6,13 +6,9 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-}
-.heroBG {
   background-position: 100% 0px;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
 .titleContainer {
   display: flex;
