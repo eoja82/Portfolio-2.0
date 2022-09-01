@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from "react"
 import { Link } from "gatsby"
 import Container from "react-bootstrap/Container"
+import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import Offcanvas from "react-bootstrap/Offcanvas"
 import * as styles from "./styles/topnav.module.css"
@@ -20,15 +21,20 @@ const Topnav = forwardRef((props, topnav) => {
           .fa-bars {
             font-size: 1.5rem;
           }
-          /* 
-          *********** move this to intro ***********
-          .nav-link {
-            color: white;
+          .menuLink {
+            font-size: 2rem;
+            font-weight: 600;
+            color: rgb(34, 31, 31);
           }
-          .nav-link:focus, .nav-link:hover {
-            color: white;
-            background-color: rgb(255, 255, 255, .2);
-          } */
+          #menuLink1:hover, #menuLink1:focus {
+            color: #744c9e;
+          }
+          #menuLink2:hover, #menuLink2:focus {
+            color: #549e44;
+          }
+          #menuLink3:hover, #menuLink3:focus {
+            color: red;
+          }          
         `}
       </style>
       <Navbar ref={topnav} className={styles.topNav} fixed="top" >
@@ -40,17 +46,17 @@ const Topnav = forwardRef((props, topnav) => {
       <Offcanvas show={showOffcanvas} onHide={offcanvasClose}>
         <Offcanvas.Header closeButton />
         <Offcanvas.Body>
-          <ul className={styles.menuList}>
-            <li className="mb-3">
-              <Link to="#projects" onClick={offcanvasClose}>Projects</Link>
-            </li>
-            <li className="mb-3">
-              <Link to="#development" onClick={offcanvasClose}>Development</Link>
-            </li>
-            <li className="mb-3">
-              <Link to="#contact" onClick={offcanvasClose}>Contact</Link>
-            </li>
-          </ul>
+          <Nav className={styles.menuLinks + " justify-content-center"}>
+            <Nav.Item>
+              <Nav.Link href="#projects" className="menuLink" id="menuLink1" onClick={offcanvasClose}>Projects</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#development" className="menuLink" id="menuLink2" onClick={offcanvasClose}>Development</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#contact" className="menuLink" id="menuLink3" onClick={offcanvasClose}>Contact</Nav.Link>
+            </Nav.Item>
+          </Nav>
         </Offcanvas.Body>
       </Offcanvas>
     </div>
