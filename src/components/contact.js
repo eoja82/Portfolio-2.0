@@ -109,9 +109,9 @@ const Contact = forwardRef((props, contact) => {
           <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><i className="fa fa-stack-overflow"></i></a>
         </Container>
       </Container>
-      <Container as="footer" className={styles.footer}>
+      <footer className={styles.footer}>
         <p class="copywrite">&copy; 2022 Erik Oja.  All rights reserved.</p>
-      </Container>
+      </footer>
     </Container>
   )
 })
