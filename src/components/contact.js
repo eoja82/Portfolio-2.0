@@ -14,23 +14,22 @@ if (typeof window !== undefined) {
 }
 
 const Contact = forwardRef((props, contact) => {
-  const bgImage = useRef(null),
-        contactForm = useRef(null),
+  const contactForm = useRef(null),
         [email, setEmail] = useState(""),
         [name, setName] = useState(""),
         [subject, setSubject] = useState(""),
         [message, setMessage] = useState("")
 
   useLayoutEffect(() => {
-    bgImage.current.style.objectPosition = `50% ${-window.innerHeight / 2}px`
+    contact.current.style.backgroundPosition = `50% ${-window.innerHeight / 2}px`
   })
 
   useEffect(() => {
-    gsap.to(bgImage.current, {
-      objectPosition: `50% ${window.innerHeight / 2}px`,
+    gsap.to(contact.current, {
+      backgroundPosition: `50% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
-        trigger: bgImage.current,
+        trigger: contact.current,
         scrub: true,
       }
     })
@@ -72,7 +71,7 @@ const Contact = forwardRef((props, contact) => {
   }
 
   return (
-    <Container ref={contact} fluid="true" id="contact" className={styles.componentContainer}>
+    <Container ref={contact} fluid="true" id="contact" className={styles.componentContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
       <style type="text/css">
         {`
           .form-control,
@@ -87,7 +86,6 @@ const Contact = forwardRef((props, contact) => {
           }
         `}
       </style>
-      <img className={styles.bgImage} ref={bgImage} src={withPrefix("/img/heroSky.webp")} alt="Sky Background"></img>
       <Container className={styles.contactContainer}>
         <h1 className={styles.header}>Contact</h1>
         <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
