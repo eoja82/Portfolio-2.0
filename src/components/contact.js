@@ -110,7 +110,7 @@ const Contact = forwardRef((props, contact) => {
         </Container>
       </Container>
       <footer className={styles.footer}>
-        <p class="copywrite">&copy; 2022 Erik Oja.  All rights reserved.</p>
+        <p className="copywrite">&copy; 2022 Erik Oja.  All rights reserved.</p>
       </footer>
     </Container>
   )
