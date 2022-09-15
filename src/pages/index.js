@@ -31,12 +31,11 @@ export default function Home() {
           database = development.current.childNodes[2],
           testing = development.current.childNodes[3],
           versionControl = development.current.childNodes[4]
-
+    
     // make sure scrollTriggers are in correct place after images load
     ScrollTrigger.refresh(true)
 
-    console.log(frontEnd)
-
+    // create ScrolTriggers for nav animation
     ScrollTrigger.create({
       trigger: intro.current,
       start: "top top",
@@ -169,7 +168,6 @@ export default function Home() {
     }
 
     function darkNav() {
-      //console.log("dark nav")
       gsap.to(nav, {
         backgroundColor: "rgb(25, 25, 25)"
       })
@@ -179,7 +177,6 @@ export default function Home() {
     }
 
     function lightNav() {
-      //console.log("light nav")
       gsap.to(nav, {
         backgroundColor: "white"
       })
