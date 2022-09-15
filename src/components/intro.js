@@ -92,7 +92,7 @@ const Intro = forwardRef((props, intro) => {
           }
         `}
       </style>
-      <Container ref={intro} fluid="true" className={styles.heroContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
+      <Container ref={intro} id="intro" fluid="true" className={styles.heroContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
         <div className={styles.titleContainer}>
           <div className={styles.topBorder} ref={topBorder}></div>
           <div className={styles.title}>
