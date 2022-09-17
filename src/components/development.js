@@ -6,10 +6,10 @@ import TechIcons from "./techIcons"
 import { backEnd, database, frontEnd, testing, versionControl } from "./data/data.js"
 import Container from "react-bootstrap/Container"
 
-const Development = forwardRef((props, development) => {
+const Development = forwardRef((props, developmentSection) => {
   return (
     <div>
-      <Container id="development" ref={development} className={styles.developmentContainer} fluid="true">
+      <Container id="development" ref={developmentSection} className={styles.developmentContainer} fluid="true">
         <LargeHeading title="Development" textAlign="right" />
         <div id="frontEnd">
           <div className={styles.titleContainer}>
