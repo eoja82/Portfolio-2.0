@@ -15,10 +15,10 @@ if (typeof window !== undefined) {
 
 export default function Home() {  
   const topnav = useRef(null),
-        intro = useRef(null),
-        projects = useRef(null),
-        development = useRef(null),
-        contact = useRef(null)
+        introSection = useRef(null),
+        projectSection = useRef(null),
+        developmentSection = useRef(null),
+        contactSection = useRef(null)
   
   useEffect(() => {
     const nav = topnav.current,
@@ -26,23 +26,23 @@ export default function Home() {
           menu = container.firstElementChild,
           home = container.lastElementChild,
           accent = home.firstElementChild,
-          frontEnd = development.current.childNodes[0],
-          backEnd = development.current.childNodes[1],
-          database = development.current.childNodes[2],
-          testing = development.current.childNodes[3],
-          versionControl = development.current.childNodes[4]
+          frontEnd = developmentSection.current.childNodes[0],
+          backEnd = developmentSection.current.childNodes[1],
+          database = developmentSection.current.childNodes[2],
+          testing = developmentSection.current.childNodes[3],
+          versionControl = developmentSection.current.childNodes[4]
     
     // make sure scrollTriggers are in correct place after images load
     ScrollTrigger.refresh(true)
 
     // create ScrolTriggers for nav animation
     ScrollTrigger.create({
-      trigger: intro.current,
+      trigger: introSection.current,
       start: "top top",
       onEnter: () => {
         darkNav()
         accentColor("red")
-        console.log("intro")
+        //console.log("intro")
       },
       onEnterBack: () => {
         darkNav()
@@ -55,12 +55,12 @@ export default function Home() {
     })
 
     ScrollTrigger.create({
-      trigger: projects.current,
+      trigger: projectSection.current,
       start: "top-=30px top",
       onEnter: () => {
         lightNav()
         accentColor("rgb(70, 236, 253)")
-        console.log("projects")
+        //console.log("projects")
       },
       onEnterBack: () => {
         lightNav()
@@ -75,9 +75,9 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#ff5722")
-        console.log("frontEnd")
+        //console.log("frontEnd")
       },
-      onLeave: () => console.log("leaving frontEnd"),
+      //onLeave: () => console.log("leaving frontEnd"),
       onEnterBack: () => {
         lightNav()
         accentColor("#ff5722")
@@ -91,7 +91,7 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#549e44")
-        console.log("backEnd")
+        //console.log("backEnd")
       },
       onEnterBack: () => {
         lightNav()
@@ -106,7 +106,7 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#ffd54f")
-        console.log("database")
+        //console.log("database")
       },
       onEnterBack: () => {
         lightNav()
@@ -121,7 +121,7 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#8d6748")
-        console.log("testing")
+        //console.log("testing")
       },
       onEnterBack: () => {
         lightNav()
@@ -136,7 +136,7 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#de4c36")
-        console.log("versionControl")
+        //console.log("versionControl")
       },
       onEnterBack: () => {
         lightNav()
@@ -145,12 +145,12 @@ export default function Home() {
     })
 
     ScrollTrigger.create({
-      trigger: contact.current,
+      trigger: contactSection.current,
       start: "top-=30px top",
       onEnter: () => {
         darkNav()
         accentColor("red")
-        console.log("contact")
+        //console.log("contact")
       },
       onLeaveBack: () => {
         lightNav()
@@ -196,10 +196,10 @@ export default function Home() {
   return (
     <Layout>
       <Topnav ref={topnav} />
-      <Intro ref={intro} />
-      <Projects ref={projects} />
-      <Development ref={development} />
-      <Contact ref={contact} />
+      <Intro ref={introSection} />
+      <Projects ref={projectSection} />
+      <Development ref={developmentSection} />
+      <Contact ref={contactSection} />
     </Layout>
   )
 }
