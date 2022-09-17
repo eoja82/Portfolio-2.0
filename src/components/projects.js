@@ -14,7 +14,7 @@ if (typeof window !== undefined) {
   gsap.registerPlugin(Flip, ScrollTrigger)
 }
 
-const Projects = forwardRef((props, contact) => {
+const Projects = forwardRef((props, projectSection) => {
   const projects = useRef(null),
         project = useRef(null),
         qProjects = gsap.utils.selector(projects),
@@ -36,6 +36,8 @@ const Projects = forwardRef((props, contact) => {
     })
 
     window.addEventListener("resize", resizing)
+
+    window.addEventListener("resize", () => console.log("width:", window.innerWidth))
 
     setImageColHeight()
     setProjectColumns()
@@ -132,7 +134,7 @@ const Projects = forwardRef((props, contact) => {
         project.style.display = "none"
         project.classList.remove("active")
       }
-      console.log("activeProjects", activeProjects)
+      //console.log("activeProjects", activeProjects)
     })
 
     Flip.from(projectsState, {
@@ -183,7 +185,7 @@ const Projects = forwardRef((props, contact) => {
           }
         `}
       </style>
-      <Container fluid="true" id="projects" ref={contact}>
+      <Container fluid="true" id="projects" ref={projectSection}>
         <Container fluid="true" className={styles.projectsContainer}>
           <div className={styles.titleContainer}>
             <LargeHeading title="Portfolio" textAlign="left" />
