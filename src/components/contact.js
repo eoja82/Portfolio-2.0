@@ -13,7 +13,7 @@ if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const Contact = forwardRef((props, contact) => {
+const Contact = forwardRef((props, contactSection) => {
   const contactForm = useRef(null),
         [email, setEmail] = useState(""),
         [name, setName] = useState(""),
@@ -21,15 +21,15 @@ const Contact = forwardRef((props, contact) => {
         [message, setMessage] = useState("")
 
   useLayoutEffect(() => {
-    contact.current.style.backgroundPosition = `50% ${-window.innerHeight / 2}px`
+    contactSection.current.style.backgroundPosition = `50% ${-window.innerHeight / 2}px`
   })
 
   useEffect(() => {
-    gsap.to(contact.current, {
+    gsap.to(contactSection.current, {
       backgroundPosition: `50% ${window.innerHeight / 2}px`,
       ease: "none",
       scrollTrigger: {
-        trigger: contact.current,
+        trigger: contactSection.current,
         scrub: true,
       }
     })
@@ -71,7 +71,7 @@ const Contact = forwardRef((props, contact) => {
   }
 
   return (
-    <Container ref={contact} fluid="true" id="contact" className={styles.componentContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
+    <Container ref={contactSection} fluid="true" id="contact" className={styles.componentContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
       <style type="text/css">
         {`
           .form-control,
