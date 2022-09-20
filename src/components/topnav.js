@@ -1,18 +1,43 @@
-import React, { forwardRef, useState } from "react"
+import React, { forwardRef, useEffect, useState } from "react"
 import { Link } from "gatsby"
+import { gsap, ScrollToPlugin } from "gsap/all"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import Offcanvas from "react-bootstrap/Offcanvas"
 import * as styles from "./styles/topnav.module.css"
 
+if (typeof window !== undefined) {
+  gsap.registerPlugin(ScrollToPlugin)
+}
 
 const Topnav = forwardRef((props, topnav) => {
   const [showOffcanvas, setShowOffcanvas] = useState(false)
 
-  function offcanvasClose() { setShowOffcanvas(false) }
-        
-  function offcanvasShow() { setShowOffcanvas(true) }
+  function scrollToSection(e) {
+    e.preventDefault()
+    const hash = e.target.getAttribute("href")
+    offcanvasClose()
+    gsap.to(window, {
+      scrollTo: hash,
+      duration: .8,
+      onComplete: setHash
+    })
+
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    function setHash() {
+      window.location.hash = hash;
+    }
+  }
+
+  function offcanvasShow(e) { 
+    e.preventDefault()
+    setShowOffcanvas(true)
+  }
+
+  function offcanvasClose() {
+    setShowOffcanvas(false)
+  }
 
   return (
     <div>
@@ -20,6 +45,14 @@ const Topnav = forwardRef((props, topnav) => {
         {`
           .fa-bars {
             font-size: 1.5rem;
+            color: white;
+          }
+          .home {
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: white;
+            text-decoration: none;
           }
           .menuLink {
             font-size: 2rem;
@@ -39,22 +72,28 @@ const Topnav = forwardRef((props, topnav) => {
       </style>
       <Navbar ref={topnav} className={styles.topNav} fixed="top" >
         <Container fluid="true">
-          <i className={styles.menu + " fa fa-bars"} onClick={offcanvasShow} role="button" aria-label="menu button"></i>
-          <Link to="#">Er<span>i</span>k Oja</Link>
+          <Nav>
+            <Nav.Item className={styles.menuContainer}>
+              <Nav.Link className={styles.menu} onClick={offcanvasShow}><i className="fa fa-bars"></i></Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#intro" style={{color: "white"}} className="home" onClick={scrollToSection}>Er<span>i</span>k Oja</Nav.Link>
+            </Nav.Item>
+          </Nav>
         </Container>
       </Navbar>
       <Offcanvas show={showOffcanvas} onHide={offcanvasClose}>
         <Offcanvas.Header closeButton />
         <Offcanvas.Body>
-          <Nav className={styles.menuLinks + " justify-content-center"}>
+          <Nav className={styles.menuLinks + " justify-content-center offcanvasMenu"}>
             <Nav.Item>
-              <Nav.Link href="#projects" className="menuLink" id="menuLink1" onClick={offcanvasClose}>Projects</Nav.Link>
+              <Nav.Link href="#projects" className="menuLink" id="menuLink1" onClick={scrollToSection}>Projects</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#development" className="menuLink" id="menuLink2" onClick={offcanvasClose}>Development</Nav.Link>
+              <Nav.Link href="#development" className="menuLink" id="menuLink2" onClick={scrollToSection}>Development</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#contact" className="menuLink" id="menuLink3" onClick={offcanvasClose}>Contact</Nav.Link>
+              <Nav.Link href="#contact" className="menuLink" id="menuLink3" onClick={scrollToSection}>Contact</Nav.Link>
             </Nav.Item>
           </Nav>
         </Offcanvas.Body>
