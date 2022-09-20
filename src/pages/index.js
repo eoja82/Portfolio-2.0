@@ -23,8 +23,8 @@ export default function Home() {
   useEffect(() => {
     const nav = topnav.current,
           container = nav.firstElementChild,
-          menu = container.firstElementChild,
-          home = container.lastElementChild,
+          menu = container.firstElementChild.firstElementChild.firstElementChild.firstElementChild,
+          home = container.firstElementChild.lastElementChild.firstElementChild,
           accent = home.firstElementChild,
           frontEnd = developmentSection.current.childNodes[0],
           backEnd = developmentSection.current.childNodes[1],
