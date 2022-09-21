@@ -42,7 +42,6 @@ export default function Home() {
       onEnter: () => {
         darkNav()
         accentColor("red")
-        //console.log("intro")
       },
       onEnterBack: () => {
         darkNav()
@@ -60,7 +59,6 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("rgb(70, 236, 253)")
-        //console.log("projects")
       },
       onEnterBack: () => {
         lightNav()
@@ -75,9 +73,7 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#ff5722")
-        //console.log("frontEnd")
       },
-      //onLeave: () => console.log("leaving frontEnd"),
       onEnterBack: () => {
         lightNav()
         accentColor("#ff5722")
@@ -91,7 +87,6 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#549e44")
-        //console.log("backEnd")
       },
       onEnterBack: () => {
         lightNav()
@@ -106,7 +101,6 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#ffd54f")
-        //console.log("database")
       },
       onEnterBack: () => {
         lightNav()
@@ -121,7 +115,6 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#8d6748")
-        //console.log("testing")
       },
       onEnterBack: () => {
         lightNav()
@@ -136,7 +129,6 @@ export default function Home() {
       onEnter: () => {
         lightNav()
         accentColor("#de4c36")
-        //console.log("versionControl")
       },
       onEnterBack: () => {
         lightNav()
@@ -150,7 +142,6 @@ export default function Home() {
       onEnter: () => {
         darkNav()
         accentColor("red")
-        //console.log("contact")
       },
       onLeaveBack: () => {
         lightNav()
