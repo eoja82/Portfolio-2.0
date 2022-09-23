@@ -1,8 +1,7 @@
-import React, { forwardRef, useLayoutEffect, useRef } from "react"
+import React, { useLayoutEffect, useRef } from "react"
 import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
-import { withPrefix } from "gatsby"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 
@@ -10,8 +9,9 @@ if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const Intro = forwardRef((props, introSection) => {
-  const heroTitle = useRef(null),
+const Intro = () => {
+  const introSection = useRef(null),
+        heroTitle = useRef(null),
         heroSubTitle = useRef(null),
         angle = useRef(null),
         topBorder = useRef(null),
@@ -20,16 +20,6 @@ const Intro = forwardRef((props, introSection) => {
   
   // on scroll animations
   useLayoutEffect(() => {
-    gsap.to(introSection.current, {
-      backgroundPosition: `100% ${window.innerHeight / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: introSection.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: .1
-      }
-    })
     gsap.to(angle.current, {
       opacity: 0,
       scrollTrigger: {
@@ -92,7 +82,7 @@ const Intro = forwardRef((props, introSection) => {
           }
         `}
       </style>
-      <Container ref={introSection} id="intro" fluid="true" className={styles.heroContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
+      <Container ref={introSection} id="intro" fluid="true" className={styles.heroContainer}>
         <div className={styles.titleContainer}>
           <div className={styles.topBorder} ref={topBorder}></div>
           <div className={styles.title}>
@@ -116,6 +106,6 @@ const Intro = forwardRef((props, introSection) => {
       </Container>
     </div>
   )
-})
+}
 
 export default Intro
