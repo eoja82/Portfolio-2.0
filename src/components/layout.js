@@ -1,5 +1,8 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { withPrefix } from "gatsby"
+import Container from "react-bootstrap/Container"
+import * as styles from "./styles/layout.module.css"
 
 
 const Layout = ({ children }) => {
@@ -34,7 +37,11 @@ const Layout = ({ children }) => {
         />
       </Helmet>
 
-      <div>{children}</div>
+      <Container fluid="true">
+        <div className={styles.bgImage} style={{backgroundImage: `url(${withPrefix("/img/tunnel3.jpg")})`}}>
+          {children}
+        </div>
+      </Container>
       
     </div>
   )
