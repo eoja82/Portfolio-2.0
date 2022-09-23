@@ -1,21 +1,20 @@
-import React, { forwardRef, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
-import { Flip, gsap, ScrollTrigger } from "gsap/all"
+import { Flip, gsap } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
-import LargeHeading from "./lgHeading"
-import SubHeading from "./subHeading"
 
 
 if (typeof window !== undefined) {
-  gsap.registerPlugin(Flip, ScrollTrigger)
+  gsap.registerPlugin(Flip)
 }
 
-const Projects = forwardRef((props, projectSection) => {
-  const projects = useRef(null),
+const Projects = () => {
+  const projectSection = useRef(null),
+        projects = useRef(null),
         project = useRef(null),
         qProjects = gsap.utils.selector(projects),
         filter = useRef(null),
@@ -37,14 +36,9 @@ const Projects = forwardRef((props, projectSection) => {
 
     window.addEventListener("resize", resizing)
 
-    window.addEventListener("resize", () => console.log("width:", window.innerWidth))
-
     setImageColHeight()
     setProjectColumns()
     setProjectsContainerHeight()
-
-    // make sure scrollTriggers are in correct place after images load
-    ScrollTrigger.refresh(true)
 
     // reset projectColumns when done resizing
     function resizing() {
@@ -59,7 +53,6 @@ const Projects = forwardRef((props, projectSection) => {
     }
 
     function setImageColHeight() {
-      console.log("window inner width", window.innerWidth)
       const width = window.innerWidth
       if (width > 1399) {
         imageColHeight = 321.433
@@ -86,13 +79,11 @@ const Projects = forwardRef((props, projectSection) => {
       } else {
         projectColumns = 1
       }
-      console.log("projectColumns", projectColumns)
     }
 
     function setProjectsContainerHeight() {
       projectsContainerHeight = Math.ceil(activeProjects / projectColumns) * imageColHeight
       projects.current.style.height = `${projectsContainerHeight + 72}px`
-      console.log("setting project container height to " + `${projectsContainerHeight + 72}px`)
     }
   }, [])
 
@@ -134,7 +125,6 @@ const Projects = forwardRef((props, projectSection) => {
         project.style.display = "none"
         project.classList.remove("active")
       }
-      //console.log("activeProjects", activeProjects)
     })
 
     Flip.from(projectsState, {
@@ -166,8 +156,7 @@ const Projects = forwardRef((props, projectSection) => {
     }, {
       height: `${(Math.ceil(activeProjects / projectColumns) * imageColHeight) + 72}px`,
       duration: 1.2,
-      ease: "power1.inOut",
-      onComplete: () => ScrollTrigger.refresh(true)
+      ease: "power1.inOut"
     })
   }
 
@@ -185,18 +174,8 @@ const Projects = forwardRef((props, projectSection) => {
           }
         `}
       </style>
-      <Container fluid="true" id="projects" ref={projectSection}>
+      <Container fluid="true" id="projects" className="bg-light" ref={projectSection}>
         <Container fluid="true" className={styles.projectsContainer}>
-          <div className={styles.titleContainer}>
-            <LargeHeading title="Portfolio" textAlign="left" />
-            <SubHeading 
-              text="Projects" 
-              justifyContent="start" 
-              flexDirection="row"
-              marginRight="2rem"
-              color="rgb(70, 236, 253)"
-            />
-          </div>
           <Container className={styles.projectsAndFilters}>
             <Row className={styles.filters} ref={filters} xs={3} sm={3} md={6} lg={6}>
               {filterList.map( (x, i) => {
@@ -238,6 +217,6 @@ const Projects = forwardRef((props, projectSection) => {
       </Container>
     </div>
   )
-})
+}
 
 export default Projects

@@ -30,19 +30,6 @@
     --imageColHeight: calc(100vw / 1.398601399);
   }
 }
-.titleContainer {
-  background-color: var(--lightBackground);
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
-}
-.projectsAndFilters {
-  margin-top: -5rem;
-}
-.projectsContainer {
-  background-color: var(--lightBackground);
-  padding-top: 55px;
-}
 .filterContainer {
   display: flex;
   justify-content: center;
@@ -56,6 +43,7 @@
 }
 .filters {
   margin: 0;
+  padding-top: 1.5rem;
   padding-left: 8px;
   padding-right: 8px;
 }
