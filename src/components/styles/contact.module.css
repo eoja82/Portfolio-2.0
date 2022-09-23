@@ -6,15 +6,8 @@
     --headerAndFormWidth: 95%;
   }
 }
-.componentContainer {
-  width: 100vw;
-  min-height: 100vh;
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .contactContainer {
-  min-width: 100vw;
+  background-color: rgb(24, 24, 24);
   padding-top: 150px;
   padding-bottom: 150px;
   display: flex;

@@ -1,7 +1,4 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from "react"
-import { withPrefix } from "gatsby"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/all"
+import React, { forwardRef, useRef, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
@@ -9,31 +6,12 @@ import Form from "react-bootstrap/Form"
 import * as styles from "./styles/contact.module.css"
 
 
-if (typeof window !== undefined) {
-  gsap.registerPlugin(ScrollTrigger)
-}
-
 const Contact = forwardRef((props, contactSection) => {
   const contactForm = useRef(null),
         [email, setEmail] = useState(""),
         [name, setName] = useState(""),
         [subject, setSubject] = useState(""),
         [message, setMessage] = useState("")
-
-  useLayoutEffect(() => {
-    contactSection.current.style.backgroundPosition = `50% ${-window.innerHeight / 2}px`
-  })
-
-  useEffect(() => {
-    gsap.to(contactSection.current, {
-      backgroundPosition: `50% ${window.innerHeight / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: contactSection.current,
-        scrub: true,
-      }
-    })
-  })
 
   function handleEmail(e) {
     setEmail(e.target.value)
@@ -71,7 +49,7 @@ const Contact = forwardRef((props, contactSection) => {
   }
 
   return (
-    <Container ref={contactSection} fluid="true" id="contact" className={styles.componentContainer} style={{backgroundImage: `url(${withPrefix("/img/heroSky.webp")})`}}>
+    <Container ref={contactSection} fluid="true" id="contact">
       <style type="text/css">
         {`
           .form-control,
@@ -109,9 +87,6 @@ const Contact = forwardRef((props, contactSection) => {
           <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><i className="fa fa-stack-overflow"></i></a>
         </Container>
       </Container>
-      <footer className={styles.footer}>
-        <p className="copywrite">&copy; 2022 Erik Oja.  All rights reserved.</p>
-      </footer>
     </Container>
   )
 })
