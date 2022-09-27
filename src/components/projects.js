@@ -162,19 +162,6 @@ const Projects = () => {
 
   return (
     <div>
-      {<style type="text/css">
-        {`
-          /* .linkButton {
-            border-color: rgb(70, 236, 253);
-            color: rgb(70, 236, 253);
-          } */
-          .linkButton:hover {
-            color: rgb(255, 227, 0);
-            border-color: rgb(255, 227, 0);
-            background-color: transparent;
-          }
-        `}
-      </style>}
       <Container fluid="true" id="projects" className={styles.projectsContainer} ref={projectSection}>
         <Container fluid="true">
           <Container>
