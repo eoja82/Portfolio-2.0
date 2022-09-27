@@ -5,12 +5,33 @@ import Tabs from "react-bootstrap/Tabs"
 import Contact from "./contact"
 import Development from "./development"
 import Projects from "./projects"
-import * as styles from "./styles/tabs.module.css"
 
 const TabContent = () => {
   return (
     <Container fluid="true">
       <Container>
+        <style>
+          {`
+            .nav-tabs .nav-link {
+              background-color: rgb(8, 8, 8, .7);
+              color: white;
+              text-transform: uppercase;
+              border: 0;
+              border-bottom: 4px solid rgb(8, 8, 8, .7);
+              border-radius: 0;
+              transition: .3s;
+            }
+            .nav-tabs .nav-link:focus, 
+            .nav-tabs .nav-link:hover {
+              border-color: rgb(255, 227, 0);
+            }
+            .nav-tabs .nav-link.active {
+              background-color: rgb(8, 8, 8, .7);
+              color: rgb(255, 227, 0);
+              border-color: rgb(255, 227, 0);
+            }
+          `}
+        </style>
         <Tabs
           defaultActiveKey="projects"
           id="tabs"
@@ -24,7 +45,7 @@ const TabContent = () => {
             <Development />
           </Tab>
           <Tab eventKey="about" title="About">
-            <div className="bg-light" style={{height: "400px"}}>
+            <div style={{height: "400px", backgroundColor: "rgb(8,8,8,.7)"}}>
               About
             </div>
           </Tab>
