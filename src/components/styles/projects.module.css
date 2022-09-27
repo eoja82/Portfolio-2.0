@@ -1,8 +1,8 @@
 :root {
-  --blue: rgb(10, 108, 221);
+  --gray: rgb(121, 121, 121);
   --yellow: rgb(255, 227, 0);
   --darkBackground: rgb(24, 24, 24);
-  --hoverColor: rgb(87, 87, 87);
+  --hoverColor: rgb(58, 58, 58);
   --imageColHeight: 321.433px;
 }
 @media (max-width: 1399px) {
@@ -58,7 +58,7 @@
   z-index: 1;
 }
 .activeFilter {
-  background-color: var(--blue);
+  background-color: var(--gray);
   position: absolute;
   width: 100%;
   height: 100%;
