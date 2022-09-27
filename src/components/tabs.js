@@ -13,11 +13,11 @@ const TabContent = () => {
         <style>
           {`
             .nav-tabs .nav-link {
-              background-color: rgb(8, 8, 8, .7);
+              background-color: rgb(8, 8, 8, .6);
               color: white;
               text-transform: uppercase;
               border: 0;
-              border-bottom: 4px solid rgb(8, 8, 8, .7);
+              border-bottom: 3px solid rgb(121, 121, 121);
               border-radius: 0;
               transition: .3s;
             }
@@ -26,7 +26,7 @@ const TabContent = () => {
               border-color: rgb(255, 227, 0);
             }
             .nav-tabs .nav-link.active {
-              background-color: rgb(8, 8, 8, .7);
+              background-color: rgb(8, 8, 8, .6);
               color: rgb(255, 227, 0);
               border-color: rgb(255, 227, 0);
             }
@@ -35,7 +35,6 @@ const TabContent = () => {
         <Tabs
           defaultActiveKey="projects"
           id="tabs"
-          className="sticky-top"
           justify
         >
           <Tab eventKey="projects" title="Projects">
