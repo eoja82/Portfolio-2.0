@@ -162,26 +162,27 @@ const Projects = () => {
 
   return (
     <div>
-      <style type="text/css">
+      {<style type="text/css">
         {`
-          .linkButton {
+          /* .linkButton {
             border-color: rgb(70, 236, 253);
             color: rgb(70, 236, 253);
-          }
+          } */
           .linkButton:hover {
-            border-color: rgb(70, 236, 253);
-            background-color: rgb(70, 236, 253);
+            color: rgb(255, 227, 0);
+            border-color: rgb(255, 227, 0);
+            background-color: transparent;
           }
         `}
-      </style>
-      <Container fluid="true" id="projects" className="bg-light" ref={projectSection}>
-        <Container fluid="true" className={styles.projectsContainer}>
-          <Container className={styles.projectsAndFilters}>
+      </style>}
+      <Container fluid="true" id="projects" className={styles.projectsContainer} ref={projectSection}>
+        <Container fluid="true">
+          <Container>
             <Row className={styles.filters} ref={filters} xs={3} sm={3} md={6} lg={6}>
               {filterList.map( (x, i) => {
                 return (
                   <Col className={styles.filterContainer} role="button" key={i} ref={filter}>
-                    <p className={styles.filter}>{x}</p>
+                    <p className={styles.filter + " text-light"}>{x}</p>
                     {i === 0 ? (<div className={styles.activeFilter} ref={activeFilter}></div>) : null}
                   </Col>
                 )
@@ -198,13 +199,13 @@ const Projects = () => {
                         <div className={styles.projectTech}>
                           {x.skills.map( (skill, key) => {
                             return (
-                              <p className={styles.skill} key={key}>{skill}</p>
+                              <p className={styles.skill + " text-light"} key={key}>{skill}</p>
                             )
                           })}
                         </div>
                         <div>
-                          <Button variant="outline-*" href={x.view} target="_blank" className={styles.linkButton + " linkButton"}>VIEW</Button>
-                          <Button variant="outline-*" href={x.code} target="_blank" className={styles.linkButton + " linkButton"}>CODE</Button>
+                          <Button variant="outline-light" href={x.view} target="_blank" className={styles.linkButton + " linkButton"}>VIEW</Button>
+                          <Button variant="outline-light" href={x.code} target="_blank" className={styles.linkButton + " linkButton"}>CODE</Button>
                         </div>
                       </div>
                     </div>

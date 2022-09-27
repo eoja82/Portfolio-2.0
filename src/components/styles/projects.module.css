@@ -1,8 +1,8 @@
 :root {
-  --lightBlue: rgb(70, 236, 253);
-  --lightBackground: rgb(250, 250, 250);
-  --darkBackground: rgb(33, 37, 41);
-  --hoverColor: rgb(240, 236, 236);
+  --blue: rgb(10, 108, 221);
+  --yellow: rgb(255, 227, 0);
+  --darkBackground: rgb(24, 24, 24);
+  --hoverColor: rgb(87, 87, 87);
   --imageColHeight: 321.433px;
 }
 @media (max-width: 1399px) {
@@ -30,6 +30,9 @@
     --imageColHeight: calc(100vw / 1.398601399);
   }
 }
+.projectsContainer {
+  background-color: var(--darkBackground);
+}
 .filterContainer {
   display: flex;
   justify-content: center;
@@ -38,12 +41,13 @@
   cursor: pointer;
   border-radius: 20px;
 }
-.filterContainer:hover {
+.filterContainer:hover,
+.filterContainer:focus {
   background-color: var(--hoverColor);
 }
 .filters {
   margin: 0;
-  padding-top: 1.5rem;
+  padding-top: calc(1.5rem + 12px);
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -54,7 +58,7 @@
   z-index: 1;
 }
 .activeFilter {
-  background-color: var(--lightBlue);
+  background-color: var(--blue);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -100,14 +104,14 @@
 }
 .projectTitle {
   text-align: center;
-  font-weight: 300;
-  color: var(--lightBlue);
+  font-weight: lighter;
+  color: var(--yellow);
+  text-transform: uppercase;
 }
 .skill {
   font-weight: 200;
   margin-left: 8px;
   margin-right: 8px;
-  color: var(--lightBackground);
 }
 .projectTech {
   display: flex;
