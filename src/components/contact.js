@@ -55,17 +55,16 @@ const Contact = forwardRef((props, contactSection) => {
           .form-control,
           .form-control:focus {
             background-color: transparent;
-            color: white;
+            color: rgb(248, 249, 250);
           }
           .form-control:focus {
-            background-color: rgb(40, 40, 40, .1);
-            border-color: rgb(70, 236, 253);
-            box-shadow: 0 0 0 rgb(70, 236, 253, .25)
+            border-color: white;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, 0.25)
           }
         `}
       </style>
       <Container className={styles.contactContainer}>
-        <h1 className={styles.header}>Contact</h1>
+        <h1 className={styles.header}>Say Hi!</h1>
         <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
           <FloatingLabel controlId="floatingEmail" label="Email Address" className={styles.floatingLabel  +" mb-3"}>
             <Form.Control type="email" onChange={handleEmail} placeholder="name@example.com" required={true} />
@@ -82,9 +81,12 @@ const Contact = forwardRef((props, contactSection) => {
           <Button variant="outline-light" type="submit">Send Message</Button>
         </Form>
         <Container fluid="true" className={styles.social}>
-          <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><i className="fa fa-linkedin"></i></a>
-          <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><i className="fa fa-github"></i></a>
-          <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><i className="fa fa-stack-overflow"></i></a>
+          <h3 className={styles.socialHeader}>Social</h3>
+          <div className={styles.socialLinks}>
+            <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><i className="fa fa-linkedin"></i></a>
+            <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><i className="fa fa-github"></i></a>
+            <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><i className="fa fa-stack-overflow"></i></a>
+          </div>
         </Container>
       </Container>
     </Container>

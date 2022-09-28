@@ -7,15 +7,15 @@
   }
 }
 .contactContainer {
-  background-color: rgb(24, 24, 24);
-  padding-top: 150px;
-  padding-bottom: 150px;
+  background-color: var(--darkBackground);
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .header {
-  color: white;
+  color: var(--yellow);
   font-weight: 400;
 }
 .header, .form {
@@ -32,39 +32,25 @@
   padding-top: 2rem;
   width: var(--headerAndFormWidth);
   display: flex;
+  flex-direction: column;
+}
+.socialHeader {
+  color: var(--yellow);
+  font-weight: lighter;
+}
+.socialLinks {
+  display: flex;
   flex-direction: row;
 }
 .linkedin,
 .github,
 .stackOverflow {
   font-size: 1.5rem;
-  color: white;
+  color: rgb(185, 185, 185);
   width: 3rem;
-  height: 3rem;
-  border: 1px solid white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
 }
 .linkedin:hover,
 .github:hover,
 .stackOverflow:hover {
-  color: rgb(34, 31, 31);
-  background-color: white;
-}
-.linkedin,
-.github {
-  margin-right: 1rem;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  max-width: 100vw;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: rgb(221, 221, 221);
+  color: white;
 }
