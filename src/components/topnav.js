@@ -21,7 +21,7 @@ const Topnav = forwardRef((props, topnav) => {
     gsap.to(window, {
       scrollTo: hash,
       duration: .8,
-      onComplete: setHash
+      onComplete: setHash()
     })
 
     // Add hash (#) to URL when done scrolling (default click behavior)
