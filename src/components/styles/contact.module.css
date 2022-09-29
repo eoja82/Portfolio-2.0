@@ -1,7 +1,7 @@
 .header, .form, .social {
   --headerAndFormWidth: 700px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .header, .form, .social {
     --headerAndFormWidth: 95%;
   }
