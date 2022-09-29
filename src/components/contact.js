@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub, faLinkedin, faStackOverflow } from "@fortawesome/free-brands-svg-icons"
 import * as styles from "./styles/contact.module.css"
 
 
@@ -83,9 +85,9 @@ const Contact = forwardRef((props, contactSection) => {
         <Container fluid="true" className={styles.social}>
           <h3 className={styles.socialHeader}>Social</h3>
           <div className={styles.socialLinks}>
-            <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><i className="fa fa-linkedin"></i></a>
-            <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><i className="fa fa-github"></i></a>
-            <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><i className="fa fa-stack-overflow"></i></a>
+            <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><FontAwesomeIcon icon={faLinkedin} /></a>
+            <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><FontAwesomeIcon icon={faGithub} /></a>
+            <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><FontAwesomeIcon icon={faStackOverflow} /></a>
           </div>
         </Container>
       </Container>
