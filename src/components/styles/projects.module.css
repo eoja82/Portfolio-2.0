@@ -1,32 +1,29 @@
-:root {
-  --gray: rgb(121, 121, 121);
-  --yellow: rgb(255, 227, 0);
-  --darkBackground: rgb(24, 24, 24);
-  --hoverColor: rgb(58, 58, 58);
+/* root variables are in layout.module.css */
+.imageCol {
   --imageColHeight: 321.433px;
 }
 @media (max-width: 1399px) {
-  :root {
+  .imageCol {
     --imageColHeight: 278.533px;
   }
 }
 @media (max-width: 1199px) {
-  :root {
+  .imageCol {
     --imageColHeight: 235.633px;
   }
 }
 @media (max-width: 991px) {
-  :root {
+  .imageCol {
     --imageColHeight: 264.233px;
   }
 }
 @media (max-width: 767px) {
-  :root {
+  .imageCol {
     --imageColHeight: 392.933px;
   }
 }
 @media (max-width: 575px) {
-  :root {
+  .imageCol {
     --imageColHeight: calc(100vw / 1.398601399);
   }
 }
@@ -43,7 +40,7 @@
 }
 .filterContainer:hover,
 .filterContainer:focus {
-  background-color: var(--hoverColor);
+  background-color: rgb(58, 58, 58);
 }
 .filters {
   margin: 0;
