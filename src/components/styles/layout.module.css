@@ -2,6 +2,7 @@
   --gray: rgb(121, 121, 121);
   --yellow: rgb(255, 227, 0);
   --darkBackground: rgb(24, 24, 24);
+  --bsLightText: rgb(248, 249, 250);
 }
 .bgImage {
   width: 100vw;
