@@ -8,7 +8,8 @@
 }
 .contactContainer {
   background-color: var(--darkBackground);
-  padding-top: 50px;
+}
+.contact {
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
