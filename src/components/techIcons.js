@@ -6,7 +6,7 @@ import * as styles from "./styles/techIcons.module.css"
 
 const TechIcons = (props) => {
   return (
-    <Container className={styles.container}>
+    <Container>
       <ul className={styles.uList}>
         {props.data.map( x => (
           <li className={styles.li + " text-light"}>
