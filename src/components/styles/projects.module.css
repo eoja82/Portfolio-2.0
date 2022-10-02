@@ -27,7 +27,7 @@
     --imageColHeight: calc(100vw / 1.398601399);
   }
 }
-.projectsContainer {
+.componentContainer {
   background-color: var(--darkBackground);
 }
 .filterContainer {
@@ -44,7 +44,6 @@
 }
 .filters {
   margin: 0;
-  padding-top: calc(1.5rem + 12px);
   padding-left: 8px;
   padding-right: 8px;
 }

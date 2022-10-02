@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
+import TabHeading from "./tabHeading"
 
 
 if (typeof window !== undefined) {
@@ -161,7 +162,8 @@ const Projects = () => {
   }
 
   return (
-    <div>
+    <Container fluid="true" className={styles.componentContainer}>
+      <TabHeading text="Projects" />
       <Container fluid="true" id="projects" className={styles.projectsContainer} ref={projectSection}>
         <Container fluid="true">
           <Container>
@@ -203,7 +205,7 @@ const Projects = () => {
           </Container>
         </Container>
       </Container>
-    </div>
+    </Container>
   )
 }
 
