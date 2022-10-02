@@ -1,7 +1,8 @@
 .developmentContainer {
-  padding-top: 50px;
-  padding-bottom: 50px;
   background-color: var(--darkBackground);
+}
+.development {
+  padding-bottom: 50px;
 }
 .header {
   color: var(--bsLightText);
