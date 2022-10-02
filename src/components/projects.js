@@ -164,7 +164,7 @@ const Projects = () => {
   return (
     <Container fluid="true" className={styles.componentContainer}>
       <TabHeading text="Projects" />
-      <Container fluid="true" id="projects" className={styles.projectsContainer} ref={projectSection}>
+      <Container fluid="true" id="projects" ref={projectSection}>
         <Container fluid="true">
           <Container>
             <Row className={styles.filters} ref={filters} xs={3} sm={3} md={6} lg={6}>
