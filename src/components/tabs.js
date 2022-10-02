@@ -2,6 +2,7 @@ import React from "react"
 import Container from "react-bootstrap/Container"
 import Tab from "react-bootstrap/Tab"
 import Tabs from "react-bootstrap/Tabs"
+import About from "./about"
 import Contact from "./contact"
 import Development from "./development"
 import Projects from "./projects"
@@ -44,9 +45,7 @@ const TabContent = () => {
             <Development />
           </Tab>
           <Tab eventKey="about" title="About">
-            <div style={{height: "400px", backgroundColor: "rgb(8,8,8,.7)"}}>
-              About
-            </div>
+            <About />
           </Tab>
           <Tab eventKey="contact" title="Contact">
             <Contact />
