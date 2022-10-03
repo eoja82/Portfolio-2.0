@@ -2,5 +2,7 @@
   background-color: var(--darkBackground);
 }
 .about {
-  height: 200px;
+  color: var(--bsLightText);
+  text-align: center;
+  padding-bottom: 50px;
 }
