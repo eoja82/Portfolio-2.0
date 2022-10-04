@@ -9,7 +9,7 @@ const TechIcons = (props) => {
     <Container>
       <ul className={styles.uList}>
         {props.data.map( x => (
-          <li className={styles.li + " text-light"}>
+          <li className={styles.li + " text-light"} key={x.title}>
           <img src={x.src} alt={`${x.title} icon`} className={styles.img}></img>
           {x.title}
         </li>
