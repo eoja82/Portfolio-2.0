@@ -7,18 +7,18 @@ import Container from "react-bootstrap/Container"
 
 const Development = () => {
   return (
-    <Container fluid="true" className={styles.developmentContainer}>
+    <Container fluid="true" id="development" className={styles.developmentContainer}>
       <TabHeading text="Development Tools" />
-      <Container id="development" className={styles.development}>
-        <h1 className={styles.header}>Front End</h1>
+      <Container className={styles.development}>
+        <h2 className={styles.header}>Front End</h2>
         <TechIcons data={frontEnd} />
-        <h1 className={styles.header}>Back End</h1>
+        <h2 className={styles.header}>Back End</h2>
         <TechIcons data={backEnd} />
-        <h1 className={styles.header}>Database</h1>
+        <h2 className={styles.header}>Database</h2>
         <TechIcons data={database} />
-        <h1 className={styles.header}>Testing</h1>
+        <h2 className={styles.header}>Testing</h2>
         <TechIcons data={testing} />
-        <h1 className={styles.header}>Version Control</h1>
+        <h2 className={styles.header}>Version Control</h2>
         <TechIcons data={versionControl} />
       </Container>
     </Container>
