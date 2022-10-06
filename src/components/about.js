@@ -6,7 +6,7 @@ import * as styles from "./styles/about.module.css"
 
 const About = () => {
   return (
-    <Container fluid="true" className={styles.aboutContainer}>
+    <Container fluid="true" className={styles.aboutContainer} id="about">
       <TabHeading text="About" />
       <Container className={styles.about}>
         <p>
