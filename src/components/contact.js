@@ -69,6 +69,13 @@ const Contact = forwardRef((props, contactSection) => {
       <Container fluid="true" className={styles.contactContainer}>
         <TabHeading text="Say Hi!" />
         <Container className={styles.contact}>
+          <Container fluid="true" className={styles.social}>
+            <div className={styles.socialLinks}>
+              <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><FontAwesomeIcon icon={faLinkedin} /></a>
+              <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><FontAwesomeIcon icon={faGithub} /></a>
+              <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><FontAwesomeIcon icon={faStackOverflow} /></a>
+            </div>
+          </Container>
           <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
             <FloatingLabel controlId="floatingEmail" label="Email Address" className={styles.floatingLabel  +" mb-3"}>
               <Form.Control type="email" onChange={handleEmail} placeholder="name@example.com" required={true} />
@@ -82,16 +89,8 @@ const Contact = forwardRef((props, contactSection) => {
             <FloatingLabel conrtrolId="floatingMessage" label="Message" className={styles.floatingLabel  +" mb-3"}>
               <Form.Control as="textarea" onChange={handleMessage} placeholder="Message" style={{height: "100px"}} required={true} />
             </FloatingLabel>
-            <Button variant="outline-light" type="submit">Send Message</Button>
+            <Button variant="outline-light" type="submit" className={styles.submit}>Send Message</Button>
           </Form>
-          <Container fluid="true" className={styles.social}>
-            <h3 className={styles.socialHeader}>Social</h3>
-            <div className={styles.socialLinks}>
-              <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><FontAwesomeIcon icon={faLinkedin} /></a>
-              <a className={styles.github} href="https://github.com/eoja82" target="_blank" rel="noopener noreferrer" aria-label="link to github"><FontAwesomeIcon icon={faGithub} /></a>
-              <a className={styles.stackOverflow} href="https://stackoverflow.com/users/11444813/eoja?tab=profile" target="_blank" rel="noopener noreferrer" aria-label="link to stack overflow"><FontAwesomeIcon icon={faStackOverflow} /></a>
-            </div>
-          </Container>
         </Container>
       </Container>
     </Container>
