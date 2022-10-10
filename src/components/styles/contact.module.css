@@ -8,6 +8,7 @@
 }
 .contactContainer {
   background-color: var(--darkBackground);
+  min-height: 100vh;
 }
 .contact {
   padding-bottom: 5rem;
