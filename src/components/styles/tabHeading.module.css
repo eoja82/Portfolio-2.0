@@ -34,7 +34,7 @@
   content: "";
   width: 75px;
   height: 2px;
-  background-color: var(--yellow);
+  background-color: var(--blue);
   display: block;
   border-radius: 50%;
   transform: translateY(-10px);
