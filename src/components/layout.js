@@ -32,9 +32,7 @@ const Layout = ({ children }) => {
       </Helmet>
 
       <Container fluid="true">
-        <div className={styles.bgImage} style={{backgroundImage: `url(${withPrefix("/img/tunnel3.jpg")})`}}>
-          {children}
-        </div>
+        {children}
       </Container>
       
     </div>
