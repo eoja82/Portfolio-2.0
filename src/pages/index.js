@@ -1,16 +1,12 @@
 import React from "react"
-import Intro from "../components/intro"
-import Footer from "../components/footer"
 import Layout from "../components/layout"
-import TabContent from "../components/tabs"
+import TabContent from "../components/tabContent"
 
 
 const Home = () => {
   return (
     <Layout>
-      <Intro />
       <TabContent />
-      <Footer />
     </Layout>
   )
 }
