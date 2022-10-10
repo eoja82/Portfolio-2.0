@@ -29,6 +29,7 @@
 }
 .componentContainer {
   background-color: var(--darkBackground);
+  min-height: 100vh;
 }
 .filterContainer {
   display: flex;
@@ -63,7 +64,7 @@
 .projects {
   padding-top: 1.5rem;
   padding-bottom: 3rem;
-  height: fit-content;
+  background-color: var(--darkBackground);
 }
 .imageCol {
   height: var(--imageColHeight);
@@ -100,8 +101,7 @@
 }
 .projectTitle {
   text-align: center;
-  font-weight: lighter;
-  color: var(--yellow);
+  color: var(--bsLightText);
 }
 .skill {
   font-weight: 200;
@@ -114,6 +114,10 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.linkButton {
-  margin: 0 8px;
+.linkButton,
+.angleRight {
+  color: var(--blue);
+}
+.angleRight {
+  font-size: 1rem;
 }

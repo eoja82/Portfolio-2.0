@@ -7,6 +7,8 @@ import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import TabHeading from "./tabHeading"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons"
 
 
 if (typeof window !== undefined) {
@@ -163,6 +165,16 @@ const Projects = () => {
 
   return (
     <Container fluid="true" id="projects" className={styles.componentContainer}>
+      <style type="text/css">
+        {`
+          .btn {
+            color: rgb(22, 190, 255);
+          }
+          .btn:hover {
+            color: rgb(22, 190, 255);
+          }
+        `}
+      </style>
       <TabHeading text="Portfolio" />
       <Container fluid="true" ref={projectSection}>
         <Container fluid="true">
@@ -193,8 +205,8 @@ const Projects = () => {
                           })}
                         </div>
                         <div>
-                          <Button variant="outline-light" href={x.view} target="_blank" className={styles.linkButton + " linkButton"}>VIEW</Button>
-                          <Button variant="outline-light" href={x.code} target="_blank" className={styles.linkButton + " linkButton"}>CODE</Button>
+                          <Button variant="outline-*" size="lg" href={x.view} target="_blank" className={styles.linkButton + " linkButton"}>View <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+                          <Button variant="outline-*" size="lg" href={x.code} target="_blank" className={styles.linkButton + " linkButton"}>Code <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
                         </div>
                       </div>
                     </div>
