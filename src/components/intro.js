@@ -1,8 +1,11 @@
 import React, { useLayoutEffect, useRef } from "react"
+import Footer from "./footer"
 import * as styles from "./styles/intro.module.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/all"
+import { withPrefix } from "gatsby"
 import Container from "react-bootstrap/Container"
+import Image from "react-bootstrap/Image"
 
 if (typeof window !== undefined) {
   gsap.registerPlugin(ScrollTrigger)
@@ -62,19 +65,18 @@ const Intro = () => {
   }, [])
 
   return (
-    <div>
-      <Container ref={introSection} id="intro" fluid="true" className={styles.heroContainer}>
-        <div className={styles.titleContainer}>
-          <div className={styles.topBorder} ref={topBorder}></div>
-          <div className={styles.title}>
-            <h1 className={styles.heroTitle} ref={heroTitle}>Erik Oja</h1>
-            <h2 className={styles.heroSubTitle} ref={heroSubTitle}>Software Developer</h2>
-          </div>
-          <div className={styles.bottomBorder} ref={bottomBorder}></div>
+    <Container ref={introSection} id="intro" fluid="true" className={styles.heroContainer}>
+      <Image className={styles.backgroundImg} src={withPrefix("/img/laptopLight.jpg")} alt="tunnel background image"></Image>
+      <div className={styles.titleContainer}>
+        <div className={styles.topBorder} ref={topBorder}></div>
+        <div className={styles.title}>
+          <h1 className={styles.heroTitle} ref={heroTitle}>Erik Oja</h1>
+          <h2 className={styles.heroSubTitle} ref={heroSubTitle}>Software Developer</h2>
         </div>
-        <i className={styles.angle + " fa fa-angle-down"} ref={angle} style={{fontSize: "2rem"}}></i>
-      </Container>
-    </div>
+        <div className={styles.bottomBorder} ref={bottomBorder}></div>
+      </div>
+      <Footer />
+    </Container>
   )
 }
 
