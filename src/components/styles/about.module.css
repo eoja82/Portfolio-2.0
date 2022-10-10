@@ -1,5 +1,6 @@
 .aboutContainer {
   background-color: var(--darkBackground);
+  min-height: 100vh;
 }
 .about {
   color: var(--bsLightText);
