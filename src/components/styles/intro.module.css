@@ -1,4 +1,5 @@
 .heroContainer {
+  background-color: rgb(5, 5, 5);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -6,6 +7,13 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+.backgroundImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  mask-image: linear-gradient(transparent, black);
 }
 .titleContainer {
   display: flex;
