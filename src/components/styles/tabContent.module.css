@@ -1,0 +1,15 @@
+.navContainer {
+  background-color: rgb(1, 1, 1);
+}
+.navWrapper {
+  padding: 1rem 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.intro {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.link {
+  cursor: pointer;
+}
