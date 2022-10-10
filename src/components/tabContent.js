@@ -33,16 +33,16 @@ const TabContent = () => {
             }
             .nav-tabs .nav-link:focus, 
             .nav-tabs .nav-link:hover {
-              color: rgb(10, 162, 221);
+              color: rgb(22, 190, 255);
             }
             .nav-tabs .nav-link.active {
               background-color: rgb(1, 1, 1);
-              color: rgb(10, 162, 221);
+              color: rgb(22, 190, 255);
             }
             .intro .nav-link:active, 
             .intro .nav-link:focus, 
             .intro .nav-link:hover {
-              color: rgb(10, 162, 221);
+              color: rgb(22, 190, 255);
             }
           `}
         </style>
