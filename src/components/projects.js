@@ -23,13 +23,12 @@ const Projects = () => {
         filter = useRef(null),
         activeFilter = useRef(null),
         filters = useRef(null),
-        qFilter = gsap.utils.selector(filters)
-
-  let resizeId,
-      imageColHeight,
-      projectColumns,
-      projectsContainerHeight,
-      activeProjects = portfolio.length
+        qFilter = gsap.utils.selector(filters),
+        resizeIdRef = useRef(),
+        imageColHeightRef = useRef(),
+        projectColumnsRef = useRef(),
+        projectsContainerHeightRef = useRef(),
+        activeProjectsRef = useRef(portfolio.length)
 
   useEffect(() => {
     // add click event to filters
@@ -45,8 +44,8 @@ const Projects = () => {
 
     // reset projectColumns when done resizing
     function resizing() {
-      clearTimeout(resizeId)
-      resizeId = setTimeout(doneResizing, 500)
+      clearTimeout(resizeIdRef.current)
+      resizeIdRef.current = setTimeout(doneResizing, 500)
     }
 
     function doneResizing() {
@@ -57,18 +56,19 @@ const Projects = () => {
 
     function setImageColHeight() {
       const width = window.innerWidth
+
       if (width > 1399) {
-        imageColHeight = 321.433
+        imageColHeightRef.current = 321.433
       } else if (width > 1199) {
-        imageColHeight = 278.533
+        imageColHeightRef.current = 278.533
       } else if (width > 991) {
-        imageColHeight = 235.633
+        imageColHeightRef.current = 235.633
       } else if (width > 767) {
-        imageColHeight = 264.233
+        imageColHeightRef.current = 264.233
       } else if (width > 575) {
-        imageColHeight = 392.933
+        imageColHeightRef.current = 392.933
       } else {
-        imageColHeight = width / 1.398601399
+        imageColHeightRef.current = width / 1.398601399
       }
     }
 
@@ -76,19 +76,19 @@ const Projects = () => {
       const width = window.innerWidth
 
       if (width > 991) {
-        projectColumns = 3
+        projectColumnsRef.current = 3
       } else if (width > 575) {
-        projectColumns = 2
+        projectColumnsRef.current = 2
       } else {
-        projectColumns = 1
+        projectColumnsRef.current = 1
       }
     }
 
     function setProjectsContainerHeight() {
-      projectsContainerHeight = Math.ceil(activeProjects / projectColumns) * imageColHeight
-      projects.current.style.height = `${projectsContainerHeight + 72}px`
+      projectsContainerHeightRef.current = Math.ceil(activeProjectsRef.current / projectColumnsRef.current) * imageColHeightRef.current
+      projects.current.style.height = `${projectsContainerHeightRef.current + 72}px`
     }
-  }, [])
+  })
 
   // animate activeFilter color and filter projects
   function filterProjects(e) {
@@ -119,12 +119,12 @@ const Projects = () => {
     projectTargets.forEach( (project, i) => {
       if (portfolio[i].skills.includes(clicked) || clicked === "All") {
         if (!project.classList.contains("active"))
-        activeProjects++
+        activeProjectsRef.current = activeProjectsRef.current + 1
         project.style.display = "block"
         project.classList.add("active")
       } else {
         if (project.classList.contains("active"))
-        activeProjects--
+        activeProjectsRef.current = activeProjectsRef.current - 1
         project.style.display = "none"
         project.classList.remove("active")
       }
@@ -157,9 +157,11 @@ const Projects = () => {
     gsap.fromTo(projects.current, {
       height: `${projects.current.clientHeight}px`
     }, {
-      height: `${(Math.ceil(activeProjects / projectColumns) * imageColHeight) + 72}px`,
+      onStart: () => console.log(activeProjectsRef.current, projectColumnsRef.current, imageColHeightRef.current),
+      height: `${(Math.ceil(activeProjectsRef.current / projectColumnsRef.current) * imageColHeightRef.current) + 72}px`,
       duration: 1.2,
-      ease: "power1.inOut"
+      ease: "power1.inOut",
+      onComplete: () => console.log("resize height complete projects = ", activeProjectsRef.current)
     })
   }
 
