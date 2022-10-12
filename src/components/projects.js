@@ -157,11 +157,9 @@ const Projects = () => {
     gsap.fromTo(projects.current, {
       height: `${projects.current.clientHeight}px`
     }, {
-      onStart: () => console.log(activeProjectsRef.current, projectColumnsRef.current, imageColHeightRef.current),
       height: `${(Math.ceil(activeProjectsRef.current / projectColumnsRef.current) * imageColHeightRef.current) + 72}px`,
       duration: 1.2,
-      ease: "power1.inOut",
-      onComplete: () => console.log("resize height complete projects = ", activeProjectsRef.current)
+      ease: "power1.inOut"
     })
   }
 
