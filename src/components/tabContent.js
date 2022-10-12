@@ -16,7 +16,6 @@ const TabContent = () => {
       <style>
           {`
             .nav-item {
-              padding-bottom: 0;
               display: flex;
               align-items: end;
             }
@@ -29,7 +28,6 @@ const TabContent = () => {
               border: 0;
               border-radius: 0;
               transition: .3s;
-              padding-bottom: 0;
             }
             .nav-tabs .nav-link:focus, 
             .nav-tabs .nav-link:hover {
