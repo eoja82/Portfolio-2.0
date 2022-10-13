@@ -1,24 +1,34 @@
 .heroContainer {
   background-color: rgb(5, 5, 5);
   width: 100vw;
-  height: 100vh;
+  /* viewport height - tabs + footer */
+  height: calc(100vh - 70px + 40px);
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
   overflow: hidden;
+}
+@media only screen and (max-width: 576px) {
+  .heroContainer {
+    justify-content: center;
+    align-items: center;
+  }
 }
 .backgroundImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right;
   mask-image: linear-gradient(transparent, black);
 }
 .titleContainer {
   display: flex;
-  flex-direction: column;
   position: absolute;
+  margin: 20vh 15vw;
+}
+@media only screen and (max-width: 576px) {
+  .titleContainer {
+    margin: 0;
+  }
 }
 .topBorder,
 .bottomBorder {
@@ -31,34 +41,15 @@
 }
 .heroTitle, .heroSubTitle {
   background-color: transparent;
-  color: white;
-  text-align: center;
-  font-weight: lighter;
+  color: var(--bsLightText);
 }
 .heroTitle {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   font-weight: 400;
+  letter-spacing: 12px;
 }
-.angle {
-  position: absolute;
-  bottom: 1rem;
-  color: white;
-  font-size: 2rem;
-}
-.navLinks {
-  position: absolute;
-  bottom: 100px;
-  border: 1px solid white;
-}
-.navLink1,
-.navLink2,
-.navLink3 {
-  min-width: 120px;
-  text-align: center;
-}
-.navLink1 {
-  border-right: 1px solid white;
-}
-.navLink3 {
-  border-left: 1px solid white;
+.heroSubTitle {
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: lighter;
 }
