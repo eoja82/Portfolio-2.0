@@ -64,6 +64,7 @@
 .projects {
   padding-top: 1.5rem;
   padding-bottom: 3rem;
+  margin-bottom: 3rem;
   background-color: var(--darkBackground);
 }
 .imageCol {

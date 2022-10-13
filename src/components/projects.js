@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react"
 import * as styles from "./styles/projects.module.css"
 import { Flip, gsap } from "gsap/all"
 import { portfolio, filterList } from "./data/data"
+import Footer from "./footer"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -217,6 +218,7 @@ const Projects = () => {
           </Container>
         </Container>
       </Container>
+      <Footer />
     </Container>
   )
 }
