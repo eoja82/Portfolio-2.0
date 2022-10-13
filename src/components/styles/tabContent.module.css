@@ -5,6 +5,7 @@
   padding: 1rem 2rem 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .intro {
   font-size: 2rem;
@@ -12,4 +13,25 @@
 }
 .link {
   cursor: pointer;
+}
+.offCanvas {
+  background-color: rgb(1, 1, 1);
+  min-height: 100%;
+}
+.offCanvasHeader,
+.offCanvasBody {
+  background-color: rgb(1, 1, 1);
+}
+.offCanvasBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.offCanvasTabs {
+  flex-direction: column;
+}
+.offcanvasNavItem {
+  margin: 1rem;
+  font-size: 1.5rem;
 }
