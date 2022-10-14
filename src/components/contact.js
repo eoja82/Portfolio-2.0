@@ -5,6 +5,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin, faStackOverflow } from "@fortawesome/free-brands-svg-icons"
+import Footer from "./footer"
 import TabHeading from "./tabHeading"
 import * as styles from "./styles/contact.module.css"
 
@@ -92,6 +93,7 @@ const Contact = forwardRef((props, contactSection) => {
             <Button variant="outline-light" type="submit" className={styles.submit}>Send Message</Button>
           </Form>
         </Container>
+        <Footer />
       </Container>
     </Container>
   )

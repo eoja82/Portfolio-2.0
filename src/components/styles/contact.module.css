@@ -8,9 +8,10 @@
 }
 .contactContainer {
   background-color: var(--darkBackground);
-  min-height: 100vh;
 }
 .contact {
+  /* viewport height - tabs and tabHeader - footer */
+  min-height: calc(100vh - 384px - 40px);
   padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
