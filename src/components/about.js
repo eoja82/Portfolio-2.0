@@ -1,5 +1,6 @@
 import React from "react"
 import Container from "react-bootstrap/Container"
+import Footer from "./footer"
 import TabHeading from "./tabHeading"
 import * as styles from "./styles/about.module.css"
 
@@ -19,7 +20,8 @@ const About = () => {
           I enjoy learning new languages and technologies and I'm always looking to learn something new to level up my skills or provide a better user experience for applications.
         </p>
       </Container>
-  </Container>
+      <Footer />
+    </Container>
   )
 }
 
