@@ -3,6 +3,8 @@
 }
 .development {
   padding-bottom: 50px;
+  /* viewport height - tabs and tabHeader - footer */
+  min-height: calc(100vh - 384px - 40px);
 }
 .header {
   color: var(--bsLightText);

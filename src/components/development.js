@@ -1,5 +1,6 @@
 import React from "react"
 import * as styles from "./styles/development.module.css"
+import Footer from "./footer"
 import TabHeading from "./tabHeading"
 import TechIcons from "./techIcons"
 import { backEnd, database, frontEnd, testing, versionControl } from "./data/data.js"
@@ -21,6 +22,7 @@ const Development = () => {
         <h2 className={styles.header}>Version Control</h2>
         <TechIcons data={versionControl} />
       </Container>
+      <Footer />
     </Container>
   )
 }
