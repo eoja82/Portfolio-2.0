@@ -32,6 +32,14 @@ const portfolio = [
     skills: ["JavaScript", "Python", "Django", "SQLite", "HTML", "CSS"]
   },
   {
+    src: "./img/projects/portfolio2.png",
+    alt: "Portfolio 2",
+    view: "https://eoja82.github.io/Portfolio-2.0/",
+    code: "https://github.com/eoja82/Portfolio-2.0",
+    about: "My second portfolio website which you are currently viewing.",
+    skills: ["React", "Gatsby", "React-Bootstrap", "GSAP"]
+  },
+  {
     src: "./img/projects/forSale.png",
     alt: "For Sale Template",
     view: "https://eoja82.github.io/For-Sale/",
@@ -41,10 +49,10 @@ const portfolio = [
   },
   {
     src: "./img/projects/portfolio.png",
-    alt: "My Portfolio",
+    alt: "Portfolio 1",
     view: "https://www.erikoja.com/",
     code: "https://github.com/eoja82/Portfolio",
-    about: "My protfolio website you are viewing.",
+    about: "My first protfolio website.",
     skills: ["JavaScript", "HTML", "CSS", "Animate.css"]
   },
   {
@@ -62,22 +70,6 @@ const portfolio = [
     code: "https://github.com/eoja82/fcc-Data-Visualization-Projects",
     about: 'Five D3.js data visualization projects.',
     skills: ["D3.js", "JavaScript", "W3.CSS", "HTML", "CSS"]
-  },
-  {
-    src: "./img/projects/pomodoroClock.png", 
-    alt: "Pomodoro Clock", 
-    view: "https://eoja82.github.io/Pomodoro-Clock",
-    code: "https://github.com/eoja82/Pomodoro-Clock",
-    about: "Built with React",
-    skills: ["React", "HTML", "CSS"]
-  },
-  {
-    src: "./img/projects/calculator.png", 
-    alt: "Calculator", 
-    view: "https://eoja82.github.io/Calculator",
-    code: "https://github.com/eoja82/Calculator",
-    about: "Built with React, Bootstrap, HTML, and CSS",
-    skills: ["React", "Bootstrap", "HTML", "CSS"]
   },
 ]
 
