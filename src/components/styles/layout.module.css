@@ -5,3 +5,6 @@
   --darkBackground: rgb(24, 24, 24);
   --bsLightText: rgb(248, 249, 250);
 }
+html {
+  background-color: var(--darkBackground);
+}
