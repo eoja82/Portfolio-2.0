@@ -15,7 +15,6 @@ import * as styles from "./styles/contact.module.css"
 const Contact = forwardRef((props, contactSection) => {
   const contactForm = useRef(null),
         sending = useRef(null),
-        emailErrorButton = useRef(null),
         [email, setEmail] = useState(""),
         [name, setName] = useState(""),
         [subject, setSubject] = useState(""),
@@ -69,7 +68,7 @@ const Contact = forwardRef((props, contactSection) => {
       console.log(err)
       sending.current.style.display = "none"
       sending.current.style.opacity = "0"
-      emailErrorButton.current.click()
+      handleModalOpen()
     })
   }
 
@@ -128,7 +127,6 @@ const Contact = forwardRef((props, contactSection) => {
         <p className="text-light fs-2"><FontAwesomeIcon icon={faSpinner} className="fa-spin" /> Sending message...</p>
       </Container>
       {/* error sending email modal */}
-      <Button variant="outline-light" onClick={handleModalOpen} ref={emailErrorButton} className="d-none"></Button>
       <Modal show={show} onHide={handleModalClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Sorry, something went wrong...</Modal.Title>
