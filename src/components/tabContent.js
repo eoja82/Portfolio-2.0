@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
@@ -9,16 +9,26 @@ import Contact from "./contact"
 import Development from "./development"
 import Intro from "./intro"
 import Projects from "./projects"
+import { gsap } from "gsap/all"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons"
 import * as styles from "./styles/tabContent.module.css"
 
 
 const TabContent = () => {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false),
+        tabWrapper = useRef(null)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  useEffect(() => {
+    gsap.to(tabWrapper.current, {
+      delay: 1,
+      opacity: 1,
+      duration: 2
+    })
+  }, [])
 
   return (
     <Container fluid="true" className={styles.navContainer}>
@@ -58,7 +68,7 @@ const TabContent = () => {
           `}
         </style>
       <Tab.Container defaultActiveKey="intro">
-        <div className={styles.navWrapper}>
+        <div className={styles.tabWrapper} ref={tabWrapper}>
           <Nav variant="tabs">
             <Nav.Item>
               <Nav.Link eventKey="intro" className={styles.intro + " intro"} style={{color: "rgb(248, 249, 250)"}}>Er<span style={{color: "rgb(10, 162, 221)"}}>i</span>k Oja</Nav.Link>
