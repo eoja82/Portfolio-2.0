@@ -89,6 +89,9 @@ const Projects = () => {
       projectsContainerHeightRef.current = Math.ceil(activeProjectsRef.current / projectColumnsRef.current) * imageColHeightRef.current
       projects.current.style.height = `${projectsContainerHeightRef.current + 72}px`
     }
+
+    // cleanup
+    return () => window.removeEventListener("resize", resizing)
   })
 
   // animate activeFilter color and filter projects
@@ -168,10 +171,10 @@ const Projects = () => {
     <Container fluid="true" id="projects" className={styles.componentContainer}>
       <style type="text/css">
         {`
-          .btn {
+          .btn.linkButton {
             color: rgb(22, 190, 255);
           }
-          .btn:hover {
+          .btn.linkButton:hover {
             color: rgb(22, 190, 255);
           }
         `}
@@ -206,8 +209,8 @@ const Projects = () => {
                           })}
                         </div>
                         <div>
-                          <Button variant="outline-*" size="lg" href={x.view} target="_blank" className={styles.linkButton + " linkButton"}>View <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
-                          <Button variant="outline-*" size="lg" href={x.code} target="_blank" className={styles.linkButton + " linkButton"}>Code <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+                          <Button variant="outline-*" size="lg" href={x.view} target="_blank" className="linkButton">View <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+                          <Button variant="outline-*" size="lg" href={x.code} target="_blank" className="linkButton">Code <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
                         </div>
                       </div>
                     </div>
