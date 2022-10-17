@@ -115,10 +115,9 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.linkButton,
 .angleRight {
   color: var(--blue);
 }
 .angleRight {
   font-size: 1rem;
-}
+} 
