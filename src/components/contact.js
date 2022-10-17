@@ -86,7 +86,7 @@ const Contact = () => {
   }
 
   return (
-    <Container fluid="true" id="contact">
+    <Container fluid="true" id="contact" className={styles.componentContainer}>
       <style type="text/css">
         {`
           .form-control,
@@ -152,7 +152,7 @@ const Contact = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <ToastContainer position="top-end" className="p-3">
+      <ToastContainer position="middle-center" className="p-3">
         <Toast 
           onClose={handleToastClose}
           show={showToast}
