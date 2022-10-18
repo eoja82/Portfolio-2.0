@@ -30,12 +30,6 @@
     margin: -7rem 0 0 0;
   }
 }
-.topBorder,
-.bottomBorder {
-  width: 278px;
-  height: 2px;
-  background-color: white;
-}
 .title {
   padding: 20px 10px;
 }
