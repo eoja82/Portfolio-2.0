@@ -34,7 +34,7 @@ const Intro = () => {
 
   return (
     <Container ref={introSection} id="intro" fluid="true" className={styles.heroContainer}>
-      <Image className={styles.backgroundImg} src={withPrefix("/img/laptopLight.jpg")} alt="tunnel background image"></Image>
+      <Image className={styles.backgroundImg} src={withPrefix("/img/laptopLight.jpg")} alt="laptop background image"></Image>
       <div className={styles.titleContainer}>
         <div className={styles.title}>
           <h1 className={styles.heroTitle} ref={heroTitle}>Erik Oja</h1>
