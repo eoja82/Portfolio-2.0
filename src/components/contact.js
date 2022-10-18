@@ -73,9 +73,15 @@ const Contact = () => {
     .then((res) => {
       sending.current.style.display = "none"
       sending.current.style.opacity = "0"
-      //alert(res.message)
-      handleToastShow()
-      if (res.success) contactForm.current.reset()
+      /* response will be sucess, error, or message */
+      if (res.success) {
+        contactForm.current.reset()
+        handleToastShow()
+      } else if (res.error) {
+        handleModalOpen()
+      } else {
+        alert(res.message)
+      }
     })
     .catch((err) => {
       console.log(err)
