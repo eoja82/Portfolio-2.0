@@ -18,15 +18,15 @@ const Intro = () => {
 
   // initial animations in
   useLayoutEffect(() => {
-    gsap.from(heroTitle.current, {
-      opacity: 0,
-      y: 50,
-      duration: .75, 
+    gsap.to(heroTitle.current, {
+      opacity: 1,
+      y: -50,
+      duration: .75,
       delay: 1
     })
-    gsap.from(heroSubTitle.current, {
-      opacity: 0,
-      y: 50,
+    gsap.to(heroSubTitle.current, {
+      opacity: 1,
+      y: -50,
       duration: .75, 
       delay: 1.25
     })

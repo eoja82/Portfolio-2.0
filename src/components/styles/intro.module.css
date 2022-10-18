@@ -36,6 +36,7 @@
 .heroTitle, .heroSubTitle {
   background-color: transparent;
   color: var(--bsLightText);
+  opacity: 0;
 }
 .heroTitle {
   font-size: 4.5rem;
