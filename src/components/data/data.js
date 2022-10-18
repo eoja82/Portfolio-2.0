@@ -34,7 +34,7 @@ const portfolio = [
   {
     src: "./img/projects/portfolio2.png",
     alt: "Portfolio 2",
-    view: "https://eoja82.github.io/Portfolio-2.0/",
+    view: "https://www.erikoja.com/",
     code: "https://github.com/eoja82/Portfolio-2.0",
     about: "My second portfolio website which you are currently viewing.",
     skills: ["React", "Gatsby", "React-Bootstrap", "GSAP"]
@@ -50,7 +50,7 @@ const portfolio = [
   {
     src: "./img/projects/portfolio.png",
     alt: "Portfolio 1",
-    view: "https://www.erikoja.com/",
+    view: "https://eoja82.github.io/Portfolio",
     code: "https://github.com/eoja82/Portfolio",
     about: "My first protfolio website.",
     skills: ["JavaScript", "HTML", "CSS", "Animate.css"]
