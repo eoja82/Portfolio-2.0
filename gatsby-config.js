@@ -9,7 +9,7 @@
 })
 
  module.exports = {
-  pathPrefix: "/Portfolio-2.0",
+  pathPrefix: `${process.env.PREFIX}`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
