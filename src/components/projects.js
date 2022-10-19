@@ -32,6 +32,33 @@ const Projects = () => {
         activeProjectsRef = useRef(portfolio.length)
 
   useEffect(() => {
+    const fOffset = -25,
+          fOpacity = 1,
+          fDuration = .75,
+          staggerStart = "start",
+          staggerEach = .15
+
+    gsap.to(qFilter(".col"), {
+      opacity: fOpacity,
+      y: fOffset,
+      duration: fDuration,
+      stagger: {
+        each: staggerEach,
+        from: staggerStart
+      }
+    })
+    gsap.to(qProjects(".col"), {
+      opacity: fOpacity,
+      y: fOffset,
+      duration: fDuration,
+      stagger: {
+        each: staggerEach,
+        from: staggerStart
+      }
+    })
+  })
+
+  useEffect(() => {
     // add click event to filters
     qFilter(".col").forEach( filter => {
       filter.addEventListener("click", filterProjects)

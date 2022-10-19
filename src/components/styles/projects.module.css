@@ -71,6 +71,7 @@
   height: var(--imageColHeight);
   padding-top: 12px;
   padding-bottom: 12px;
+  opacity: 0;
 }
 .imageContainer {
   width: 100%;
