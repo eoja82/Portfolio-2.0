@@ -111,12 +111,19 @@ const Contact = () => {
         {`
           .form-control,
           .form-control:focus {
-            background-color: transparent;
+            background-color: rgb(75, 75, 75);
+            border-color: rgb(75, 75, 75);
+            /* background-color: transparent; */
             color: rgb(248, 249, 250);
+            box-shadow: none;
           }
           .form-control:focus {
             border-color: rgb(22, 190, 255);
             box-shadow: 0 0 0 .25rem rgb(22, 190, 255), 0.25);
+          }
+          .btn.submit {
+            border-color: rgb(75, 75, 75);
+            background-color: rgb(75, 75, 75);
           }
           .btn.submit:hover {
             border-color: rgb(22, 190, 255);
