@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
+import gsap from "gsap"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
@@ -24,6 +25,19 @@ const Contact = () => {
         [showModal, setShowModal] = useState(false),
         [showToast, setShowToast] = useState(false),
         mailToLink = `mailto:erik-oja@outlook.com?subject=${subject}&body=${message}`
+
+  useEffect(() => {
+    gsap.to(gsap.utils.toArray(".toAnimate"), {
+      opacity: 1,
+      y: -25,
+      duration: .75,
+      delay: .25,
+      stagger: {
+        each: .1,
+        from: "start"
+      }
+    })
+  })
 
   function handleEmail(e) {
     setEmail(e.target.value)
@@ -108,6 +122,9 @@ const Contact = () => {
             border-color: rgb(22, 190, 255);
             background-color: rgb(22, 190, 255);
           }
+          .toAnimate {
+            opacity: 0;
+          }
         `}
       </style>
       <Container fluid="true" className={styles.contactContainer}>
@@ -116,19 +133,19 @@ const Contact = () => {
           <Container fluid="true" className={styles.social}>
           </Container>
           <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
-            <FloatingLabel controlId="floatingEmail" label="Email Address" className={styles.floatingLabel  + " mb-3"}>
+            <FloatingLabel controlId="floatingEmail" label="Email Address" className={styles.floatingLabel  + " mb-3 toAnimate"}>
               <Form.Control type="email" onChange={handleEmail} placeholder="name@example.com" required={true} />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingName" label="Name" className={styles.floatingLabel  +" mb-3"}>
+            <FloatingLabel controlId="floatingName" label="Name" className={styles.floatingLabel  +" mb-3 toAnimate"}>
               <Form.Control type="text" onChange={handleName} placeholder="Your Name" required={true} />
             </FloatingLabel>
-            <FloatingLabel controlId="floatingSubject" label="Subject" className={styles.floatingLabel + " mb-3"}>
+            <FloatingLabel controlId="floatingSubject" label="Subject" className={styles.floatingLabel + " mb-3 toAnimate"}>
               <Form.Control type="text" onChange={handleSubject} placeholder="Subject" required={true} />
             </FloatingLabel>
-            <FloatingLabel conrtrolId="floatingMessage" label="Message" className={styles.floatingLabel  +" mb-3"}>
+            <FloatingLabel conrtrolId="floatingMessage" label="Message" className={styles.floatingLabel  +" mb-3 toAnimate"}>
               <Form.Control as="textarea" onChange={handleMessage} placeholder="Message" style={{height: "100px"}} required={true} />
             </FloatingLabel>
-            <Container fluid="true" className="d-flex justify-content-between">
+            <Container fluid="true" className="d-flex justify-content-between toAnimate">
               <Button variant="outline-light" type="submit" className="submit">Send Message</Button>
               <div className={styles.socialLinks}>
                 <a className={styles.linkedin} href="https://www.linkedin.com/in/erikoja/" target="_blank" rel="noopener noreferrer" aria-label="link to linkedin"><FontAwesomeIcon icon={faLinkedin} /></a>
