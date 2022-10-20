@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect } from "react"
 import gsap from "gsap"
 import Container from "react-bootstrap/Container"
 import Footer from "./footer"
