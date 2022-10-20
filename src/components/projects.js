@@ -32,28 +32,23 @@ const Projects = () => {
         activeProjectsRef = useRef(portfolio.length)
 
   useEffect(() => {
-    const fOffset = -25,
-          fOpacity = 1,
-          fDuration = .75,
-          staggerStart = "start",
-          staggerEach = .15
 
     gsap.to(qFilter(".col"), {
-      opacity: fOpacity,
-      y: fOffset,
-      duration: fDuration,
+      opacity: 1,
+      y: -25,
+      duration: .75,
       stagger: {
-        each: staggerEach,
-        from: staggerStart
+        each: .075,
+        from: "start"
       }
     })
     gsap.to(qProjects(".col"), {
-      opacity: fOpacity,
-      y: fOffset,
-      duration: fDuration,
+      opacity: 1,
+      y: -25,
+      duration: .75,
       stagger: {
-        each: staggerEach,
-        from: staggerStart
+        each: .15,
+        from: "start"
       }
     })
   })
