@@ -12,19 +12,17 @@ const TabHeading = (props) => {
         underlineRef = useRef(null)
 
   useEffect(() => {
-    gsap.to(headerRef.current, {
+    gsap.to([headerRef.current, underlineRef.current], {
       opacity: 1,
       delay: .25,
       duration: .75,
-      y: 0
+      y: 0,
+      stagger: {
+        each: .1,
+        from: "start"
+      }
     })
-    gsap.to(underlineRef.current, {
-      opacity: 1,
-      delay: .5,
-      duration: .75,
-      y: 0
-    })
-  }, [])
+  })
 
   return (
     <Container className={styles.container} fluid="true">
