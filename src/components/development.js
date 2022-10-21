@@ -10,7 +10,6 @@ import Container from "react-bootstrap/Container"
 const Development = () => {
   
   useEffect(() => {
-    console.log(gsap.utils.toArray(".header"))
     gsap.to(gsap.utils.toArray(".header"), {
       opacity: 1,
       y: -25,
