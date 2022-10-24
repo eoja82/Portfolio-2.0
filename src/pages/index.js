@@ -1,13 +1,16 @@
 import React from "react"
+import SSRProvider from "react-bootstrap/SSRProvider"
 import Layout from "../components/layout"
 import TabContent from "../components/tabContent"
 
 
 const Home = () => {
   return (
-    <Layout>
-      <TabContent />
-    </Layout>
+    <SSRProvider>
+      <Layout>
+        <TabContent />
+      </Layout>
+    </SSRProvider>
   )
 }
 
