@@ -18,6 +18,7 @@ import * as styles from "./styles/contact.module.css"
 const Contact = () => {
   const contactForm = useRef(null),
         sending = useRef(null),
+        [emailNone, setEmailNone] = useState(""),
         [email, setEmail] = useState(""),
         [name, setName] = useState(""),
         [subject, setSubject] = useState(""),
@@ -38,6 +39,10 @@ const Contact = () => {
       }
     })
   })
+
+  function handleEmailNone(e) {
+    setEmailNone(e.target.value)
+  }
 
   function handleEmail(e) {
     setEmail(e.target.value)
@@ -73,6 +78,10 @@ const Contact = () => {
  
   function handleSubmit(e) {
     e.preventDefault()
+
+    // return if hidden input filled in 
+    if (emailNone) return
+    
     sending.current.style.display = "flex"
     sending.current.style.opacity = "1"
 
@@ -138,6 +147,9 @@ const Contact = () => {
           <Container fluid="true" className={styles.social}>
           </Container>
           <Form className={styles.form} ref={contactForm} onSubmit={handleSubmit}>
+            <FloatingLabel controlId="floatingEmailNone" label="Email Address" className={styles.floatingLabel  + " mb-3 d-none"}>
+              <Form.Control type="email" onChange={handleEmailNone} placeholder="name@example.com" />
+            </FloatingLabel>
             <FloatingLabel controlId="floatingEmail" label="Email Address" className={styles.floatingLabel  + " mb-3 toAnimate"}>
               <Form.Control type="email" onChange={handleEmail} placeholder="name@example.com" required={true} />
             </FloatingLabel>
