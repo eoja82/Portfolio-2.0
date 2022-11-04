@@ -198,6 +198,7 @@ const Projects = () => {
           }
           .btn.linkButton:hover {
             color: rgb(22, 190, 255);
+            text-decoration: underline;
           }
         `}
       </style>
@@ -232,8 +233,8 @@ const Projects = () => {
                             })}
                           </div>
                           <div>
-                            <Button variant="outline-*" size="lg" href={x.view} target="_blank" className="linkButton">View <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
-                            <Button variant="outline-*" size="lg" href={x.code} target="_blank" className="linkButton">Code <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+                            <Button variant="outline-*" size="lg" href={x.view} target="_blank" className="linkButton">View<FontAwesomeIcon icon={faAngleRight} className={styles.angleRight + " ps-1"} /></Button>
+                            <Button variant="outline-*" size="lg" href={x.code} target="_blank" className="linkButton">Code<FontAwesomeIcon icon={faAngleRight} className={styles.angleRight + " ps-1"} /></Button>
                           </div>
                         </div>
                       </div>
