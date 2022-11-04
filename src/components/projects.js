@@ -215,31 +215,33 @@ const Projects = () => {
                 )
               })}
             </Row>
-            <Row xs={1} sm={1} md={2} lg={3} xl={3} xxl={3} className={styles.projects} ref={projects}>
-              {portfolio.map( (x, i) => {
-                return (
-                  <Col className={styles.imageCol + " active imageCol"} key={i} ref={project}>
-                    <div className={styles.imageContainer}>
-                      <img className={styles.projectImg} src={x.src} alt={x.alt}></img>
-                      <div className={styles.overlay}>
-                        <h2 className={styles.projectTitle}>{x.alt}</h2>
-                        <div className={styles.projectTech}>
-                          {x.skills.map( (skill, key) => {
-                            return (
-                              <p className={styles.skill + " text-light"} key={key}>{skill}</p>
-                            )
-                          })}
-                        </div>
-                        <div>
-                          <Button variant="outline-*" size="lg" href={x.view} target="_blank" className="linkButton">View <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
-                          <Button variant="outline-*" size="lg" href={x.code} target="_blank" className="linkButton">Code <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+            <Container fluid="true" className={styles.projectsWrapper}>
+              <Row xs={1} sm={1} md={2} lg={3} xl={3} xxl={3} className={styles.projects} ref={projects}>
+                {portfolio.map( (x, i) => {
+                  return (
+                    <Col className={styles.imageCol + " active imageCol"} key={i} ref={project}>
+                      <div className={styles.imageContainer}>
+                        <img className={styles.projectImg} src={x.src} alt={x.alt}></img>
+                        <div className={styles.overlay}>
+                          <h2 className={styles.projectTitle}>{x.alt}</h2>
+                          <div className={styles.projectTech}>
+                            {x.skills.map( (skill, key) => {
+                              return (
+                                <p className={styles.skill + " text-light"} key={key}>{skill}</p>
+                              )
+                            })}
+                          </div>
+                          <div>
+                            <Button variant="outline-*" size="lg" href={x.view} target="_blank" className="linkButton">View <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+                            <Button variant="outline-*" size="lg" href={x.code} target="_blank" className="linkButton">Code <FontAwesomeIcon icon={faAngleRight} className={styles.angleRight} /></Button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Col>
-                )
-              })}
-            </Row>
+                    </Col>
+                  )
+                })}
+              </Row>
+            </Container>
           </Container>
         </Container>
       </Container>
