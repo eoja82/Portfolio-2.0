@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import Container from "react-bootstrap/Container"
-// this imports color varaibles
+// this imports color variables
 import * as styles from "./styles/layout.module.css"
 
 
