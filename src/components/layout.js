@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import Container from "react-bootstrap/Container"
+import * as styles from "./styles/layout.module.css"
 
 
 const Layout = ({ children }) => {
@@ -26,9 +27,11 @@ const Layout = ({ children }) => {
           crossorigin="anonymous"
         />
       </Helmet>
+
       <Container fluid="true">
         {children}
       </Container>
+      
     </div>
   )
 }
